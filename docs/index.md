@@ -1,15 +1,15 @@
-# Welcome to MkDocs
+# 首页
 
 For full documentation visit [mkdocs.org](https://mkdocs.org).
 
-## Commands
+## 命令行
 
 * `mkdocs new [dir-name]` -创建一个新的项目.
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
 
-## Project layout
+## 项目布局
 
     mkdocs.yml    # The configuration file.
     docs/
