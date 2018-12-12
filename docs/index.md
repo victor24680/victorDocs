@@ -1,17 +1,17 @@
-# 首页1
+# 首页
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+官方文档 [https://mkdocs.org](https://mkdocs.org).
 
-## 命令行2
+## 命令行
 
 * `mkdocs new [dir-name]` -创建一个新的项目.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+* `mkdocs serve` - 启动mkdocs服务.
+* `mkdocs build` - 创建一个站点.
+* `mkdocs help` - 打印帮助信息.
 
-## 项目布局3
+## 项目部署
 
-    mkdocs.yml    # The configuration file.
+    mkdocs.yml    # 配置文件.
     docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        index.md  # 首页入口文件.
+        ...       # 其他页面文件等.
