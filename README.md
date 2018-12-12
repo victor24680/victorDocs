@@ -2,7 +2,7 @@
 
 **构建状态：**
 
-[![Build Status](https://travis-ci.org/victor24680/docs.svg?branch=master)](https://travis-ci.org/victor24680/docs)
+[![Build Status](https://travis-ci.org/victor24680/victorDocs.svg?branch=master)](https://travis-ci.org/victor24680/victorDocs)
 
 **访问地址**
 
