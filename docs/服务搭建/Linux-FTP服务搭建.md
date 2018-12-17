@@ -41,6 +41,23 @@ usermod -d /home/wwwroot/ftpimg.mytp.com ftpuser
 - Windows 可以尝试测试下：ftp://ip地址
 - Linux 可用用lftp命令连接
 
+
+##### 7.开启被动模式 ,在配置文件:/etc/vsftpd/vsftpd.conf,最后添加
+
+```
+listen_port=21
+local_root=/home/wwwroot/ftpimg.mytp.com/ #改成自己的目录即可
+tcp_wrappers=YES
+use_localtime=YES
+ftp_data_port=20
+
+pasv_enable=YES
+pasv_min_port=20000
+pasv_max_port=30999
+pasv_promiscuous=YES
+```
+
+
 ###### 参考地址
  
 - 基于Centos7搭建的FTP服务
