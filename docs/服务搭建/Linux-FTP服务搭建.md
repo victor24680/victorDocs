@@ -47,5 +47,3 @@ usermod -d /home/wwwroot/ftpimg.mytp.com ftpuser
 1. [https://www.cnblogs.com/jefflee168/p/6575014.html](https://www.cnblogs.com/jefflee168/p/6575014.html) 
 2. [https://www.linuxidc.com/Linux/2017-11/148518.htm](https://www.linuxidc.com/Linux/2017-11/148518.htm)
 
-
-
