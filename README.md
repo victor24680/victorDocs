@@ -10,4 +10,4 @@ https://victor24680.github.io/docs
 
 **域名地址**
 
-http://docs.myvictortst.com
+http://docs.mylw.ink/
