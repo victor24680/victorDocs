@@ -148,7 +148,22 @@ rsync -vzrtopg --delete --progress --password-file=/etc/rsyncd.secrets /home/tes
 	done
 	
 ```
+
+（3）启动脚本
+
+```
 	
+	#nohup /bin/bash /root/bin/rsync.sh &
+	nohup 表示一直执行下去
+	& 表示后台执行
+```
+
+（4）开机自动启动
+
+```
+	#echo "nohup /bin/bash /root/bin/rsync.sh &" >> /etc/rc.local
+```
+
 ### 备注
 
 1. 实时同步监控详细说明-[https://blog.csdn.net/halazi100/article/details/46807259](：https://blog.csdn.net/halazi100/article/details/46807259)
@@ -170,19 +185,9 @@ rsync -vzrtopg --delete --progress --password-file=/etc/rsyncd.secrets /home/tes
 	
 错误详情和解决方法：[https://blog.csdn.net/wangxin6722513/article/details/44218893](https://blog.csdn.net/wangxin6722513/article/details/44218893)
 
-（3）启动脚本
+rsync常见问题及解决办法：[https://blog.whsir.com/post-392.html](https://blog.whsir.com/post-392.html)
 
-```
-	
-	#nohup /bin/bash /root/bin/rsync.sh &
-	nohup 表示一直执行下去
-	& 表示后台执行
-```
-
-（4）开机自动启动
-
-```
-	#echo "nohup /bin/bash /root/bin/rsync.sh &" >> /etc/rc.local
-```
+本地同步： rsync -av 源目录 目标目录
+[https://blog.csdn.net/zsx0728/article/details/78455472](https://blog.csdn.net/zsx0728/article/details/78455472)
 
 
