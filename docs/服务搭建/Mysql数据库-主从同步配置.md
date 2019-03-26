@@ -23,6 +23,8 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 
 详情介绍：[https://www.cnblogs.com/Aiapple/p/5792939.html](https://www.cnblogs.com/Aiapple/p/5792939.html)
 
+备注：主从同步时，必须保证双方的数据是一样的，否则，可能从库无法同步（比如无法更新，插入数据等）；
+
 
 
 ###### mysql 配置文件目录
@@ -87,7 +89,9 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 ```
 	
 	mysql>flush tables with read lock;#停止主库的数据更新操作-即数据库锁定操作；
-	
+	mysql>lock tables ref_test read;#单独锁定某个数据表；
+	#备注：上面的两个操作，在退出mysql终端的时候，会隐式的提交，执行unlock tables,如果想表锁定一直有效，则不能退出终端。
+
 	#导出数据库，数据库备份；
 	mysqldump -uroot -proot testdba > testdba.sql; #数据库备份脚本，及将数据库备份到当前目录
 	#数据库导入，即导入数据到数据库testdba;
@@ -100,7 +104,7 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 	#2.将远程文件远程传输到本地指定目录
 	scp 用户名@192.168.66.143:/root/testdba.sql /home/ 
 
-	mysql>unlock tables;
+	mysql>unlock tables;#解除锁定
 
 	mysql> create database cmdb default charset utf8;#创建一个新的数据库
 
@@ -112,9 +116,12 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 	Slave_IO_Running: NO
 	这是一个很常见的错误，总结起来就三个原因：
 
-	主库的网络不通，或者主库的防火墙拒绝了外部连接3306端口
-	在配置从库时，输错了ip地址和密码，或者主库在创建用户时写错了用户名和密码
-	在配置从库时，输错了主服务器的二进制日志信息
+	1.主库的网络不通，或者主库的防火墙拒绝了外部连接3306端口，网络必须互通；
+	2.在配置从库时，输错了ip地址和密码，或者主库在创建用户时写错了用户名和密码
+	3.在配置从库时，输错了主服务器的二进制日志信息
+	4.ID问题，在安装mysql数据库的时候，默认server-id=1,此处必须设置一样的才行；
+	5.pos不正确，登录mysql服务终端，查看show master status，排除这方面的原因
+	6.Last_Io_Errno错误代码详情：https://blog.csdn.net/u011698346/article/details/37934505
 
 
 
