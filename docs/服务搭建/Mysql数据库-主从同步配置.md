@@ -26,7 +26,7 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 
 
 ###### mysql 配置文件目录
-`#vim /etc/my.cnf`
+`vim /etc/my.cnf`
 ##### 主库配置
 ```
 
@@ -55,7 +55,7 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 #### 从库配置 
 ```	
 
-	#vim /etc/my.cnf
+	vim /etc/my.cnf
 	#从数据库库的配置
 	server_id = 2
 	master-host = 192.168.66.142
@@ -89,22 +89,32 @@ SQL线程，会读取relay log文件中的日志,并解析成具体操作，来�
 	mysql>flush tables with read lock;#停止主库的数据更新操作-即数据库锁定操作；
 	
 	#导出数据库，数据库备份；
-	#mysqldump -uroot -proot testdba > testdba.sql; #数据库备份脚本，及将数据库备份到当前目录
+	mysqldump -uroot -proot testdba > testdba.sql; #数据库备份脚本，及将数据库备份到当前目录
 	#数据库导入，即导入数据到数据库testdba;
-	#mysqldump -uroot -proot testdba < testdba.sql;
+	mysqldump -uroot -proot testdba < testdba.sql;
 
 	#1.将备份文件远程传输到指定目录
 	#注意：用户账户对指定的目录必须有写入的权限；
-	#scp testdba.sql 用户名@192.168.66.143:/root/
+	scp testdba.sql 用户名@192.168.66.143:/root/
 
 	#2.将远程文件远程传输到本地指定目录
-	#scp 用户名@192.168.66.143:/root/testdba.sql /home/ 
+	scp 用户名@192.168.66.143:/root/testdba.sql /home/ 
 
 	mysql>unlock tables;
 
 	mysql> create database cmdb default charset utf8;#创建一个新的数据库
 
 ```
+
+
+##### 配置常见错误
+
+	Slave_IO_Running: NO
+	这是一个很常见的错误，总结起来就三个原因：
+
+	主库的网络不通，或者主库的防火墙拒绝了外部连接3306端口
+	在配置从库时，输错了ip地址和密码，或者主库在创建用户时写错了用户名和密码
+	在配置从库时，输错了主服务器的二进制日志信息
 
 
 
