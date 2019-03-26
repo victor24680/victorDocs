@@ -101,6 +101,34 @@ git log --graph --pretty=oneline
 #日志排序
 ```
 
+# Cento服务器上搭建git服务【GIT服务-延伸】
++ 安装 `yum -y install git`
++ 创建git服务-账号密码
+
+```
+
+		useradd git #创建用户名
+		passwd git #为git服务创建密码
+```
+
++ 创建git仓库
+
+```
+	
+	git init --bare /home/GIT/test.git #创建一个远程仓库
+	chown -R git:git test.git/ #为服务远程服务仓库赋予权限
+	
+```
+
++ 客户端克隆一个远程仓库【和前面介绍的一样】
+
+```
+
+	git clone git@192.168.66.142:/home/GIT/test.git
+	
+```
+
+
 
 
 
