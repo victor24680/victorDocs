@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3724219-1527-4637-8526-c4720baaf76a" name="Default" comment="" />
+    <list default="true" id="c3724219-1527-4637-8526-c4720baaf76a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Linux命令/find-命令详解.md" afterPath="$PROJECT_DIR$/docs/Linux命令/find-命令详解.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Linux命令/用户权限管理.md" afterPath="$PROJECT_DIR$/docs/Linux命令/用户权限管理.md" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,38 +16,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="git 使用文档.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/使用手册/git 使用文档.md">
+      <file leaf-file-name="数据库备份脚本-MySql备份.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/服务搭建/数据库备份脚本-MySql备份.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="300">
-                <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Linux-FTP服务搭建.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/服务搭建/Linux-FTP服务搭建.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="164">
-                <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="window-redis部署.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/服务搭建/window-redis部署.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="225">
-                <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -52,11 +30,11 @@
         </entry>
       </file>
       <file leaf-file-name="用户权限管理.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Linxu命令/用户权限管理.md">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/用户权限管理.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="267">
-                <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+              <first_editor relative-caret-position="432">
+                <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -64,12 +42,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="目录及文件权限管理.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Linxu命令/目录及文件权限管理.md">
+      <file leaf-file-name="Shell 输入输出显示.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/Shell 输入输出显示.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="125">
-                <caret line="59" column="13" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+              <first_editor relative-caret-position="216">
+                <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="管道命令.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/管道命令.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="780">
+                <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="命令结合执行.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/命令结合执行.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="108">
+                <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="find-命令详解.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/find-命令详解.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="432">
+                <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="网络&amp;IP相关使用命令.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/网络&amp;IP相关使用命令.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="297">
+                <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="后台执行命令crontab或at.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/后台执行命令crontab或at.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="270">
+                <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -78,11 +121,24 @@
         </entry>
       </file>
       <file leaf-file-name="touch-命令及常用快捷键.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/Linxu命令/touch-命令及常用快捷键.md">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/touch-命令及常用快捷键.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="125">
-                <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="目录及文件权限管理.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/Linux命令/目录及文件权限管理.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="351">
+                <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -104,6 +160,12 @@
         <option value="$PROJECT_DIR$/docs/Linux-FTP服务搭建.md" />
         <option value="$PROJECT_DIR$/docs/Linxu命令/用户权限管理.md" />
         <option value="$PROJECT_DIR$/docs/服务搭建/Linux-FTP服务搭建.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/用户权限管理.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/find-命令详解.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/后台执行命令crontab或at.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/Shell 输入输出显示.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/命令结合执行.md" />
+        <option value="$PROJECT_DIR$/docs/Linux命令/管道命令.md" />
       </list>
     </option>
   </component>
@@ -115,10 +177,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -135,7 +197,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -177,24 +238,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="服务搭建" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mytangqing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mytangqing" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="使用手册" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -213,18 +256,19 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Linxu命令" />
+              <option name="myItemId" value="Linux命令" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/WebService2018/PHPTutorial/WWW/www.hxbank.com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,17 +363,18 @@
       <updated>1544681152658</updated>
       <workItem from="1544681159222" duration="22497000" />
       <workItem from="1545013652663" duration="16605000" />
+      <workItem from="1562547935612" duration="22709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39102000" />
+    <option name="totallyTimeSpent" value="61811000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17371601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19078243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -359,138 +404,120 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/touch-命令及常用快捷键.md">
+    <entry file="file://$PROJECT_DIR$/docs/使用手册/git 使用文档.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="324">
+            <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/用户权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/window-redis部署.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="775">
-            <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <first_editor relative-caret-position="243">
+            <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/目录及文件权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/用户权限管理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2550">
-            <caret line="102" column="10" lean-forward="true" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
+          <first_editor relative-caret-position="1026">
+            <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/find-命令详解.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/目录及文件权限管理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1125">
-            <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <first_editor relative-caret-position="1593">
+            <caret line="59" column="13" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linux-FTP服务搭建.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/touch-命令及常用快捷键.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="350">
-            <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/window-redis部署.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="25">
-            <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <first_editor relative-caret-position="135">
+            <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/Linux-FTP服务搭建.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1161">
+            <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/touch-命令及常用快捷键.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/用户权限管理.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/目录及文件权限管理.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/find-命令详解.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linux-FTP服务搭建.md" />
+    <entry file="file://$PROJECT_DIR$/docs/window-redis部署.md" />
     <entry file="file://$PROJECT_DIR$/docs/index.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/用户权限管理.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/目录及文件权限管理.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/find-命令详解.md" />
+    <entry file="file://$PROJECT_DIR$/docs/git 使用文档.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/touch-命令及常用快捷键.md" />
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/用户权限管理.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1026">
+            <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/用户权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/目录及文件权限管理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="514">
-            <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <first_editor relative-caret-position="1593">
+            <caret line="59" column="13" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/目录及文件权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/touch-命令及常用快捷键.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="325">
-            <caret line="102" column="10" lean-forward="false" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/find-命令详解.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="300">
-            <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/git 使用文档.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="275">
-            <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu-Command/touch-命令及常用快捷键.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="275">
-            <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <first_editor relative-caret-position="135">
+            <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
             <folding />
           </first_editor>
           <second_editor />
@@ -508,10 +535,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/Linux-FTP服务搭建.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="486">
+            <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/NginxWeb访问日志备份.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docs/服务搭建/window-redis部署.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
+          <first_editor relative-caret-position="243">
             <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             <folding />
           </first_editor>
@@ -519,44 +568,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/用户权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/文件备份.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="267">
-            <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+          <first_editor relative-caret-position="405">
+            <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/目录及文件权限管理.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/目录及文件权限管理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="125">
-            <caret line="59" column="13" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <first_editor relative-caret-position="351">
+            <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/Linxu命令/touch-命令及常用快捷键.md">
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/网络&amp;IP相关使用命令.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="125">
-            <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <first_editor relative-caret-position="297">
+            <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/服务搭建/Linux-FTP服务搭建.md">
+    <entry file="file://$PROJECT_DIR$/docs/服务搭建/数据库备份脚本-MySql备份.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="164">
-            <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/用户权限管理.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="432">
+            <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/find-命令详解.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="432">
+            <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/命令结合执行.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="108">
+            <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/后台执行命令crontab或at.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="270">
+            <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/touch-命令及常用快捷键.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/Shell 输入输出显示.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="216">
+            <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Linux命令/管道命令.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="780">
+            <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
             <folding />
           </first_editor>
           <second_editor />

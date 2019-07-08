@@ -42,12 +42,13 @@ find -type b/d/c/p/l/f
 find -size n[c,b,k,M,G]
 #介于大小之间：如10M-100M,find -size +10M -100M
 
-#使查找在进入子目录前先行查找完本目录【待核查】
-find -depth 
+#使查找在进入子目录前先行查找完本目录【待核查】,递归子目录查找。
+find -depth  
+
 
 #查找某一类型文件系统中的文件 这些文件系统类型通常可在/etc/fstab中找到【待核查】
 find -fstype
-#查找文件时，不跨越文件系统mount点【待核查】
+#查找文件时，不跨越文件系统mount点【待核查】(即不进入其他文件系统查找)
 find -mount
 #如果遇到到链接符号文件，就跟踪所指的目标文件【待核查】
 find -follow
@@ -55,6 +56,14 @@ find -follow
 
 #忽略某个文件
 find -prune 忽略某个目录【待核查】
+
+#查找，并执行某个文件后
+find -name 1.sh -exec sh 1.sh {} \;
+
+#后面的{} \;不能丢；
+
+#查找，并以安全模式去执行(询问的方式去执行)
+find -name 1.sh -ok sh 1.sh {} \;
 
 ```
 
