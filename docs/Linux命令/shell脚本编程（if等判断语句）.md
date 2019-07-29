@@ -157,12 +157,13 @@ fi
 ```
 
 ##### shell脚本参数处理
+###### shift命令-忽略$1-$9的限制，
 ```angular2html
     #!/bin/sh
     # test.sh
-    echo "函数名为：$0 " #输出 test
-    echo "脚本的参数列表：$@" #输出 aa bb cc
-    while [ $# -ne 0 ]
+    echo "函数名为：$0 " #输出脚本名称 test
+    echo "脚本的参数列表：$@" #输出参数列表： aa bb cc
+    while [ $# -ne 0 ] # $# 参数个数；
     do
         echo $1 #依次输出：aa bb cc
         shift #提供偏移帮助，使得上面的'echo $1'无限制，即$1到$9无参数限制
@@ -170,4 +171,49 @@ fi
 
     $ sh test.sh aa bb cc
     # eval 命令：可以获取输入脚本的最后一个参数
+```
+
+###### getopts命令
+- 编写脚本，是控制多个命令行参数更加容易。
+- 形成命令行处理标准形式。
+```angularjs
+   #!/bin/sh
+   # getopts1.sh
+   ALL=false
+   HELP=false
+   FILE=false
+   VERBOSE=false
+   
+   #OPTION
+   #如果不传递参数的值，则直接写成：ahfgv
+   while getopts :a:h:f:g:v: OPTION
+   do
+       case $OPTION in
+           a)ALL=true
+               echo "ALL is $ALL"
+               a=$OPTARG
+           ;;
+           h)HELP=true
+               echo "HELP is $HELP"
+               h=$OPTARG
+           ;;
+           f)FILE=true
+               echo "FILE is $FILE"
+               f=$OPTARG
+           ;;
+           v)VERBOSE=true
+               echo "VERBOSE is $VERBOSE"
+               v=$OPTARG
+           ;;
+       esac
+   done
+   
+   echo "a=$a"
+   echo "h=$h"
+   echo "f=$f"
+   echo "v=$v" 
+   
+   $ sh getopts1.sh -a 1 -h 2
+   #如果参数后不带值：这一般会提示 ：option requires an argument -- a
+   如果小屏蔽错误，则在option_string前加上":",即:a:h:f:v:g
 ```
