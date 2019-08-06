@@ -65,5 +65,15 @@ find -name 1.sh -exec sh 1.sh {} \;
 #查找，并以安全模式去执行(询问的方式去执行)
 find -name 1.sh -ok sh 1.sh {} \;
 
+
+locate -i #忽略大小写差异
+locate -r #后面可接正规表示法的显示方法
+locate passwd #找出系统中与passwd相关的文档。
+
+whereis -b 只找binary格式的文件
+whereis -m 只找在说明manual路径下的文件
+whereis -s 只找source 来源文件
+whereis -u 搜寻不在上述三个项目当中的其他特殊文件。
+
 ```
 
