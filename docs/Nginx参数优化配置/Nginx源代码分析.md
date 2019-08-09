@@ -1,0 +1,9 @@
+#### 源代码分析 -组成元素
+- worker (进程)
+- thread (线程)
+- connection (链接)
+- event (事件)
+- module (模块)
+- pool (内存池)
+- cycle (全局设置)
+- log (日志)
