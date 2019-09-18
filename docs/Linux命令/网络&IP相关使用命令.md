@@ -46,3 +46,32 @@
 
 ```
 
+#### 网络相关配置
+- 网卡信息相关文件 `vim /etc/sysconfig/network-scripts/ifcfg-eth0`
+```shell
+    DEVICE=eth0 网卡设备名称
+    
+    BOOTPROTO=none 是否自动获取IP（none,static,dpcp-自动获取）
+    HWADDR=00:0c:29:c4:09 MAC地址
+    NM_CONTROLLED=yes 是否可以由Network Manage图形管理工具托管
+    ONBOOT=yes 是否随网络服务启动 eth0生效
+    TYPE=Ethernet 类型为以太网
+    UUID="44b7.........." 唯一识别码
+    IPADDR=192.168.0.252 IP地址
+    NETMASK=255.255.255.0 子网掩码
+    GATEWAY=192.168.0.1 网关
+    DNS1=202.106.0.20 DNS
+    IPV6INIT=no IPv6没有启用
+    USERCTL=no 不允许非root用户控制此网络
+```
+- 主机名信息 `vim /etc/sysconfig/network`
+```shell
+    NETWORKING=yes
+    HOSTNAME=localhost.localdomain 主机名
+    修改之后，需要重复服务器，才生效
+    如果想临时生效，
+    $ hostname #查看主机名
+    $ hostname xdl #设置临时主机名为xdl，临时生效（需要看到修改的，需要重新连接），重服务器之后，会消失
+```
+- DNS配置文件 `vim /etc/resolv.conf`
+
