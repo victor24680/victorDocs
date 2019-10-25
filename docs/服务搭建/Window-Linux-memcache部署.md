@@ -36,7 +36,32 @@
     echo $get_value;
  ?>
 ```
+#### Linux下安装
+安装方法：[https://www.runoob.com/memcached/memcached-install.html](https://www.runoob.com/memcached/memcached-install.html)
 
-
-
+#### Linux下php-memcache扩展安装
+手动编译PHP的各种扩展安装，大致流程如下（以memcache为例）
+- 下载官方编译源码(stable-稳定包)：[http://pecl.php.net/package/memcache](http://pecl.php.net/package/memcache)
+```shell
+    #下载.解压
+    wget http://pecl.php.net/get/memcache-2.2.7.tgz               
+    tar -zxvf memcache-2.2.7.tgz
+    cd memcache-2.2.7
+```
+- 进入解压的目录开始如下草
+```shell
+    #几乎所有的PHP扩展都会通过1.2方法。
+    #1.根据当前的PHP版本动态的创建扩展的configure文件(phpize：动态执行的工具)
+    /usr/local/php/bin/phpize  --with-php-config=/usr/local/php/bin/php-config
+    #2.检查配置文件
+    ./configure --with-php-config=/usr/local/php/bin/php-config
+    #编译安装
+    make && make install
+    #修改php配置文件（php.ini，如果不知道路径，直接通过phpinfo函数查找即可）
+    #/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/，此路径也可以根据phpinfo查找。
+    extension = /usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/memcache.so
+    #重启php
+    /etc/init.d/php restart
+    #检查安装:通过phpinfo查看即可
+```
 
