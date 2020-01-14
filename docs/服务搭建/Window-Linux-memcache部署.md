@@ -29,7 +29,7 @@
 #####  memcahe测试
 ```php
 <?php
-    $memcache = new Memcache;             //创建一个memcache对象
+    $memcache = new \Memcache;             //创建一个memcache对象
     $memcache->connect('localhost', 11211) or die ("Could not connect"); //连接Memcached服务器
     $memcache->set('key', 'test');        //设置一个变量到内存中，名称是key 值是test
     $get_value = $memcache->get('key');   //从内存中取出key的值
@@ -48,7 +48,7 @@
     tar -zxvf memcache-2.2.7.tgz
     cd memcache-2.2.7
 ```
-- 进入解压的目录开始如下草
+- 进入解压的目录开始如下
 ```shell
     #几乎所有的PHP扩展都会通过1.2方法。
     #1.根据当前的PHP版本动态的创建扩展的configure文件(phpize：动态执行的工具)
@@ -64,4 +64,15 @@
     /etc/init.d/php restart
     #检查安装:通过phpinfo查看即可
 ```
+
+memcache 通常通过内网构建集群，一般限制外网访问
+- Linux下通过防护墙限制端口访问即可。
+- Window下也可以通过防护墙绑定：[https://www.cnblogs.com/TiestoRay/p/5061701.html](https://www.cnblogs.com/TiestoRay/p/5061701.html)
+- 还可以直接绑定指定的机器IP访问 
+```shell
+    memcached -d -m 1024 -u -nobody -l 127.0.0.1 -p 11211 -c 1024
+    # -l 参数指定为本机IP
+```
+详情参考：[http://yangjunwei.com/2209.html](http://yangjunwei.com/2209.html)
+
 
