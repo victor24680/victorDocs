@@ -71,10 +71,25 @@ git merge -m "合并其他分支到主分支" branch_name
 ```
 git branch -d branch_name
 ```
-##### 撤销一个合并
+##### 撤销/回滚历史操作
 
 ```
-git reset --hard HEAD^
+#撤销操作
+git checkout -- <filename> 放弃文件的当前更改，回到最近一次的提交状态
+git reset HEAD <filename>，取消暂存文件
+git commit --amend ，覆盖上一次的提交，虽然不是撤销操作，但有类似的效果
+git rebase -abort 撤销一次rebase
+
+#回滚历史
+git reset --hard HEAD^ 回滚到上个版本(^和~1等价，^^和~2等价，^-2和~3等价，依次类推)
+git reset --hard <SHA-1> 回滚到指定版本号，如果是版本号的前几位，git会自动寻找匹配的版本号
+git reset --hard~2,回到前两个版本
+git reset --hard <tag> 回到指定标签的版本
+git reset --hard <SHA-1><filename> 回到某个文件到指定版本号
+#撤销历史
+git revert HEAD 撤销最近一次的提交，并作为一次新的提交
+git revert HEAD~1 撤销最近两次的提交，并作为一次新的提交
+git revert <SHA-1> 撤销指定版本的提交，并作为一次新的提交
 ```
 ### 日志管理
 ##### 查看日志
