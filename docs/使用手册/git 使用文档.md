@@ -24,7 +24,6 @@ git add 1.txt
 git status
 #进入缓存文件差异界面
 git diff --cached //【查看缓存区哪些文件被修改】可以直接按q 退出
-
 ```
 #### 提交内容
 
@@ -33,10 +32,15 @@ git commit -a -m "初始化文件"
 #-a 不会添加新的文件
 #-m 提交你的注释
 ```
-#### 添加远程仓库
+#### 远程仓库管理
 
 ```
+#关联远程仓库（添加远程仓库）
 git remote add origin https://git.hub.cn/victorxxxx.git 
+#查看信息
+git remote -v
+#移除远程仓库
+git remote rm origin 
 ```
 #### 推送新的内容到远程分支
 
@@ -116,34 +120,42 @@ git log --graph --pretty=oneline
 #日志排序
 ```
 
-# Cento服务器上搭建git服务【GIT服务-延伸】
-+ 安装 `yum -y install git`
+# Cento服务器上搭建git服务器【GIT服务-延伸】
++ 安装
+ 1. Centos `yum -y install git` 
+ 2. Ubuton `sudo apt-get install git`
 + 创建git服务-账号密码
 
 ```
-
-		useradd git #创建用户名
-		passwd git #为git服务创建密码
+	useradd git #创建用户名
+	passwd git #为git服务创建密码
 ```
 
-+ 创建git仓库
++ Linux上创建git远程仓库
 
 ```
-	
-	git init --bare /home/GIT/test.git #创建一个远程仓库
-	chown -R git:git test.git/ #为服务远程服务仓库赋予权限
-	
+	cd /home/GIT
+	git init --bare test.git #创建一个远程仓库
+	chown -R git:git test.git/ #改变远程仓库的目录权限
 ```
 
 + 客户端克隆一个远程仓库【和前面介绍的一样】
-
 ```
-
+    #克隆已有仓库
 	git clone git@192.168.66.142:/home/GIT/test.git
+	# 关联远程仓库
+	git remote add origin git@192.168.66.142:/home/GIT/test.git
+	#因为git是与ssh挂钩，如果ssh端口号已变更，则使用如下命令：
+	git clone ssh://git@ip地址:61622/home/GitsCode/qjsweb.git
 	
 ```
-
-
++ 禁止git用户远程登录
+```shell
+usermod -s /bin/false username #没有提示
+usermod -s /usr/sbin/nologin git #有提示
+ ```
+ - 参考网址:[https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664](https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664)
+ - 参考:[https://git-reference.readthedocs.io/zh_CN/latest/](https://git-reference.readthedocs.io/zh_CN/latest/) 
 
 
 
