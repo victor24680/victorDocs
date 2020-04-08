@@ -1,10 +1,10 @@
-#### git初始化配置
+# git初始化配置
 
 ```
 git config --global user.name "victorxxxx
 git config --global user.email 490319xxx@qq.com
 ```
-### 初始化一个仓库
+# 初始化一个仓库
 
 ```
 #1.克隆一个仓库(里面已经包含远程仓库地址)
@@ -13,7 +13,7 @@ git clone https://git.hub.cn/victorxxx.git
 git init
 
 ```
-### git 工作流程
+# git 工作流程
 
 #### 添加新的文件
 
@@ -25,14 +25,14 @@ git status
 #进入缓存文件差异界面
 git diff --cached //【查看缓存区哪些文件被修改】可以直接按q 退出
 ```
-#### 提交内容
+##### 提交内容
 
 ```
 git commit -a -m "初始化文件"
 #-a 不会添加新的文件
 #-m 提交你的注释
 ```
-#### 远程仓库管理
+##### 远程仓库管理
 
 ```
 #关联远程仓库（添加远程仓库）
@@ -42,12 +42,12 @@ git remote -v
 #移除远程仓库
 git remote rm origin 
 ```
-#### 推送新的内容到远程分支
+##### 推送新的内容到远程分支
 
 ```
 git push origin master //(master-代表当前主分支)
 ```
-### 分支管理
+# 分支管理
 ##### 创建分支
 
 ```
@@ -95,7 +95,7 @@ git revert HEAD 撤销最近一次的提交，并作为一次新的提交
 git revert HEAD~1 撤销最近两次的提交，并作为一次新的提交
 git revert <SHA-1> 撤销指定版本的提交，并作为一次新的提交
 ```
-### 日志管理
+# 日志管理
 ##### 查看日志
 ```
 #查看日志
@@ -118,6 +118,16 @@ git log --pretty=oneline //每条日志输出一行
 git log --graph --pretty=oneline
 #--graph 可以格式化日志记录（可视化）
 #日志排序
+```
+# 忽略文件提交失效
+- 当忽略文件还是提交时，需要手动清除缓存
+```shell
+--cached              仅仅移除索引
+-f, --force           覆盖最新检查文件
+-r                    允许清理递归文件
+--ignore-unmatch      无法匹配时，零状态退出
+#【指定目录或文件清理-示例】
+git rm -r --cached  文件
 ```
 
 # Cento服务器上搭建git服务器【GIT服务-延伸】
