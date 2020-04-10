@@ -202,11 +202,42 @@ jar包下载地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
 ```
 
 ###### 测试Mybatis
-1. 读取配置文件：`Reader reader=new Resources.getResourceAsReader(SqlMapConfig.xml)`
-2. 创建SqlSessionFactory工厂：`SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(reader);`
-3. 使用工厂生产SqlSession对象：`SqlSession session = sqlSessionFactory.openSession();`
-4. 使用SqlSession创建Dao接口：`IUserDao userDao = session.getMapper(IUserDao.class);`
-5. 使用代理对象执行方法：`List<User> userlist=userdao.findAll();`
+1. 读取配置文件
+2. 创建SqlSessionFactory工厂：
+3. 使用工厂生产SqlSession对象：
+4. 使用SqlSession创建Dao接口：
+5. 使用代理对象执行方法：
+6. 执行案例
+```java
+
+package com.test;
+
+import com.bean.User;
+import com.dao.IUser;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.Reader;
+import java.util.List;
+
+public class TestMybatis {
+    public static void main(String[] args) {
+        try {
+            Reader reader= Resources.getResourceAsReader("SqlMapConfig.xml");//1
+            SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(reader);//2
+            SqlSession session=sqlSessionFactory.openSession();//3
+            IUser user=session.getMapper(IUser.class);//4
+            List<User> userList=user.findAll();//5
+            System.out.println(userList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+
+```
 
 ###### 完成
 
