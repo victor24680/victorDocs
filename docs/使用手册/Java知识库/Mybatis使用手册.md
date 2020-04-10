@@ -29,8 +29,8 @@
  </dependency>
 ```
 - 如果是普通版的工程，手动导入即可；<br>
-jar包下载地址一：[http://search.maven.org/#browse](http://search.maven.org/#browse)
-jar包下肢地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
+jar包下载地址一：[http://search.maven.org/#browse](http://search.maven.org/#browse)<br>
+jar包下载地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
 
 ###### 创建Mybatis的主配置文件SqlMapConfig.xml
 ```xml
