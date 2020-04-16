@@ -5,4 +5,8 @@ site_url: http://docs.mylw.ink/
 theme: readthedocs
 nav:
   - Home: index.md
-  - Java知识库: Java知识库
+  - Java知识库:
+    - maven工程坐标使用.md
+    - Mybatis使用手册.md
+    - SSM整合.md
+    - 开发相关jar下载地址.md
