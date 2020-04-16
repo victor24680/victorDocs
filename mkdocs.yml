@@ -5,3 +5,4 @@ site_url: http://docs.mylw.ink/
 theme: readthedocs
 nav:
   - Home: index.md
+  - Java知识库: Java知识库
