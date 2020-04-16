@@ -3,7 +3,17 @@ repo_url: https://github.com/victor24680/victorDocs
 copyright: Victor-个人文档库
 site_url: http://docs.mylw.ink/
 
-theme: readthedocs
+theme:
+  name: material
+  palette:
+    primary: 'Blue Grey'
+    accent: 'Pink'
+  feature:
+    tabs: false
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+  language: 'zh'
 nav:
   - 首页: index.md
   - Java知识库:
