@@ -15,3 +15,5 @@
     docs/
         index.md  # 首页入口文件.
         ...       # 其他页面文件等.
+# 使用手册介绍
+    [https://cyent.github.io/markdown-with-mkdocs-material/appendix/yml/](https://cyent.github.io/markdown-with-mkdocs-material/appendix/yml/)
