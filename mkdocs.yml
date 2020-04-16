@@ -4,5 +4,7 @@ copyright: Victor-个人文档库
 site_url: http://docs.mylw.ink/
 theme: readthedocs
 nav:
-  - Home: index.md
-  - Java知识库: Java知识库/maven工程坐标使用.md
+  - 首页: index.md
+  - Java知识库:
+    - 坐标: Java知识库/maven工程坐标使用.md
+    - Mybatis使用手册: Java知识库/Mybatis使用手册.md
