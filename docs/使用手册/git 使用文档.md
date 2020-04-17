@@ -164,12 +164,11 @@ git rm -r --cached  文件
 usermod -s /bin/false username #没有提示
 usermod -s /usr/sbin/nologin git #有提示
  ```
- - 参考网址:[https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664](https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664)
- - 参考:[https://git-reference.readthedocs.io/zh_CN/latest/](https://git-reference.readthedocs.io/zh_CN/latest/) 
-
-
-
-
+ 1. 参考网址:[https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664](https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664)
+ 2. 参考:[https://git-reference.readthedocs.io/zh_CN/latest/](https://git-reference.readthedocs.io/zh_CN/latest/) 
+ 3. 参考二:[http://www.ruanyifeng.com/blog/2014/06/git_remote.html](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+ 4. 参考三:[https://www.cnblogs.com/gbyukg/archive/2011/12/02/2271372.html](https://www.cnblogs.com/gbyukg/archive/2011/12/02/2271372.html)
+ 5. 仓库关联：[https://www.iteye.com/blog/eksliang-2249472](https://www.iteye.com/blog/eksliang-2249472)
 
 
 
