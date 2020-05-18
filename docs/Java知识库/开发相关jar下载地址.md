@@ -10,6 +10,9 @@
 [blog.csdn.net/weixin_44532540/article/details/89672344](blog.csdn.net/weixin_44532540/article/details/89672344)
 - IDEA设置自定编译
 [blog.csdn.net/diaomeng11/article/details/73826564](blog.csdn.net/diaomeng11/article/details/73826564)
+- Eclipse 配置 Maven插件
+[https://blog.csdn.net/u013033112/article/details/80618961](https://blog.csdn.net/u013033112/article/details/80618961)
+
 
 #### 开发环境
 - Web服务器下载
@@ -19,4 +22,8 @@
 1. java8：[https://www.oracle.com/java/technologies/javase-jdk8-downloads.html](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 2. java9：[https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html](https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html)
 3. java10：[https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html)
+
+#### 常见问题处理
+1. 解决maven加载慢的问题？<br/>
+答：忽略加载，设置 archetypeCatalog的值为：internal
 
