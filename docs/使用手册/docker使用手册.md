@@ -79,4 +79,31 @@ docker commit -m="描述信息" -a="作者" how2jtmall how2j/tmall:now
 how2jtmall 原始容器名（可以是容器ID号）
 how2j/tmall:now 目的容器名
 ```
+
+# 导入导出*迁移备份
+## save 
+- 备份命令：从镜像中备份（可以保留镜像历史信息）
+- `docker save -o/> xxx.tar xxx:latest`
+- -o和>表示输出到文件xxx.tar(目标文件)，xxx:latest是源镜像名(name:tag)
+
+## load
+- 加载备份文件：加载程镜像文件
+- `docker load -i/< xxx.tar`
+- -i和<表示从文件输入.会导入镜像及相关元数据，包括tag信息
+
+## export
+- 导出命令：从运行的容器中备份到目标文件(无法保留镜像所有历史信息)
+- `docker export -o xxx-test.tar xxx-test`
+- -o表示输出到文件,xxx-test.tar 为目标文件 xxx-test为源容器名（name）
+
+## import
+- 导入命令
+- `docker import xxx-test.tar xxx:imp`
+## 建议
+- 备份镜像：用save、load即可
+- 备份容器：用export、import（可以增量备份命令）
+## 查看镜像历史
+`docker history xxx:latest`
+
 - 参考：[https://www.runoob.com/docker/docker-container-connection.html](https://www.runoob.com/docker/docker-container-connection.html)
+- 参考挂载信息：[https://blog.csdn.net/weixin_37773766/article/details/80702926](https://blog.csdn.net/weixin_37773766/article/details/80702926)
