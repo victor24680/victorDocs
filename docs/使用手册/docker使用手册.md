@@ -57,10 +57,11 @@ docker.io/how2j/tmall   latest              18d90c918965        15 months ago   
 - --privileged 表示启动容器的时候，把权限带进去，这样可以在容器中进行完整的操作
 - -p21:21 第一个21，表示Linux系统上开放21端口.第二个21表示在容器里开放21端口,当访问Linux系统21端口的时候，会间接访问到容器里了。
 - -name how2jtmall 表示给起个名字，方便管理
-- how2j/tmall:latest 镜像名:版本号（最新版本）
+- how2j/tmall:latest 镜像名:版本号（最新版本）（请放置在最后） 否则会导致容器启动失败：
 - /usr/sbin/init 表示启动后台运行的程序，即通过这个命令初始化
 # 进入创建的容器
 `docker exec -it how2jtmall /bin/bash`
+- v 目录挂载：`-v /home/nginx/www:/usr/share/nginx/html` 表示 把宿主机中的www目录挂载到容器中的html目录中
 
 # 查看容器
 - `docker ps` 查看在运行的容器
@@ -107,3 +108,4 @@ how2j/tmall:now 目的容器名
 
 - 参考：[https://www.runoob.com/docker/docker-container-connection.html](https://www.runoob.com/docker/docker-container-connection.html)
 - 参考挂载信息：[https://blog.csdn.net/weixin_37773766/article/details/80702926](https://blog.csdn.net/weixin_37773766/article/details/80702926)
+- PHP-NGIX容器中整合：[https://www.runoob.com/docker/docker-install-php.html](https://www.runoob.com/docker/docker-install-php.html)
