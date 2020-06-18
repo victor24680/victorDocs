@@ -1,3 +1,5 @@
+#### php 手册
+- [https://www.runoob.com/php/php-tutorial.html](https://www.runoob.com/php/php-tutorial.html)
 #### laravel框架
 - laravel框架一键安装包，直接下载源码，方便实用
 [https://xueyuanjun.com/post/2](https://xueyuanjun.com/post/2)
