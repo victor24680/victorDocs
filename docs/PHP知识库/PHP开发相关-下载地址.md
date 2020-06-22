@@ -15,3 +15,9 @@
 [https://learnku.com/](https://learnku.com/)
 - Laravel学院
 [https://www.golaravel.com/](https://www.golaravel.com/)
+
+- Composer镜像加速
+[https://learnku.com/articles/15977/composer-accelerate-and-modify-mirror-source-in-china](https://learnku.com/articles/15977/composer-accelerate-and-modify-mirror-source-in-china)
+
+- Composer 安装问题
+[https://blog.csdn.net/weixin_34283445/article/details/91735405](https://blog.csdn.net/weixin_34283445/article/details/91735405)

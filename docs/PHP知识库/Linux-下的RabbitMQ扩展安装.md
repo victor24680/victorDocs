@@ -1,5 +1,10 @@
 ## 简介
 RabbitMQ的协议AMQP(因为扩展为C语言编写，AMQP依赖librabbitmq库)与RbbitMQ通信时，需要安装依赖库rabbitmq-c库
+## 官方安装方法
+- [https://www.rabbitmq.com/tutorials/tutorial-one-php.html](https://www.rabbitmq.com/tutorials/tutorial-one-php.html)
+
+## 模式讲解
+[https://www.cnblogs.com/Jeely/p/10784013.html](https://www.cnblogs.com/Jeely/p/10784013.html)
 
 ## 安装`rabbitmq-c`
 - 下载地址：[https://github.com/alanxz/rabbitmq-c](https://github.com/alanxz/rabbitmq-c)
