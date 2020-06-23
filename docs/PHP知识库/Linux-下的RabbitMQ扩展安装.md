@@ -1,7 +1,6 @@
 ## 简介
 RabbitMQ的协议AMQP(因为扩展为C语言编写，AMQP依赖librabbitmq库)与RbbitMQ通信时，需要安装依赖库rabbitmq-c库
-## 官方安装方法
-- [https://www.rabbitmq.com/tutorials/tutorial-one-php.html](https://www.rabbitmq.com/tutorials/tutorial-one-php.html)
+
 
 ## 模式讲解
 [https://www.cnblogs.com/Jeely/p/10784013.html](https://www.cnblogs.com/Jeely/p/10784013.html)
@@ -45,7 +44,14 @@ vim /usr/local/php/etc/php.ini
 ```
 - 参考：[https://www.jianshu.com/p/31680a703c2f](https://www.jianshu.com/p/31680a703c2f)
 
-## 测试
+
+## 测试（官方类库）
+## 官方使用方法（英文版）
+- [https://www.rabbitmq.com/tutorials/tutorial-one-php.html](https://www.rabbitmq.com/tutorials/tutorial-one-php.html)
+## 使用方法（中文版）
+- [https://xiaoxiami.gitbook.io/rabbitmq_into_chinese_php/ying-yong-jiao-cheng/php-ban/4-routing.md](https://xiaoxiami.gitbook.io/rabbitmq_into_chinese_php/ying-yong-jiao-cheng/php-ban/4-routing.md)
+
+## 测试（原生）
 - 查看：可以通过phpinfo函数查看。
 - 测试代码
 ```php
