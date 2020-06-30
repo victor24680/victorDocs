@@ -21,7 +21,6 @@
 [https://tomcat.apache.org](https://tomcat.apache.org)
 - JDK下载
 [http://jdk.java.net/java-se-ri/9](http://jdk.java.net/java-se-ri/9)
-https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 1. java8：[https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 2. java9：[https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html](https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html)
 3. java10：[https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html)
