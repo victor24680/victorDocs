@@ -1,12 +1,17 @@
 #### pom.xml坐标介绍
 1. 在<dependency>依赖关系标签中，引入了 `<scope>test</scope>` 标签，它主要管理依赖的部署。
-- complie 缺省值，适用于所有阶段，会随着项目一起发布
-- provided 类似于complie，期望JDK，容器或使用者会提供这个依赖。如servlet.jar
-- runtime 只有在运行时使用，如JDBC驱动，适用于运行和测试阶段
-- test 只在测试时使用，用于编译运行测试代码。不会随着项目一起发布
-- system 类似于provided 需要显示提供包含依赖的jar,Maven不会再Repository中查找它。
-```   
++ complie 缺省值，适用于所有阶段，会随着项目一起发布
++ provided 类似于complie，期望JDK，容器或使用者会提供这个依赖。如servlet.jar
++ runtime 只有在运行时使用，如JDBC驱动，适用于运行和测试阶段
++ test 只在测试时使用，用于编译运行测试代码。不会随着项目一起发布
++ system 类似于provided 需要显示提供包含依赖的jar,Maven不会再Repository中查找它。
+
+#### Spring项目相关基础依赖包
+    
+```
+
 <dependencies>
+
     <!--【测试类相关包】-->
     <dependency>
         <groupId>junit</groupId>
@@ -261,6 +266,31 @@
         <artifactId>spring-websocket</artifactId>
         <version>5.0.16.RELEASE</version>
     </dependency>
-
 </dependencies>
+
+```
+
+#### SpringBoot项目相关基础依赖
+
+
+```xml
+
+	<!--引入方式见SpringBoot入门搭建-->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-tomcat</artifactId>
+	</dependency>
+	
+	<!--tomcat的支持.-->
+	<dependency>
+	       <groupId>org.apache.tomcat.embed</groupId>
+	       <artifactId>tomcat-embed-jasper</artifactId>
+	</dependency>	
+	    
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-devtools</artifactId>
+	    <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+	</dependency>
+
 ```
