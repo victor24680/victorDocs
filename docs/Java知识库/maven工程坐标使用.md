@@ -276,6 +276,8 @@
 ```xml
 
 	<!--引入方式见SpringBoot入门搭建-->
+
+	<!--下面三个包在开发中一般不适用-此处简单说明-->
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-tomcat</artifactId>
