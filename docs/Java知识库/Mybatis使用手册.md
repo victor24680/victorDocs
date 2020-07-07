@@ -1,6 +1,7 @@
-## 搭建步骤
-###### 创建Mybatis工程（Maven工程或者普通工程）
+搭建步骤
+- 创建Mybatis工程（Maven工程或者普通工程）
 - 如果是创建maven工程则直接导入坐标记录
+## Jar包导入
 ```xml
 <!--【数据相关】-->
 <!--【MySql连接】-->
@@ -32,7 +33,7 @@
 jar包下载地址一：[http://search.maven.org/#browse](http://search.maven.org/#browse)<br>
 jar包下载地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
 
-###### 创建Mybatis的主配置文件SqlMapConfig.xml
+## 创建Mybatis的主配置文件SqlMapConfig.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
@@ -94,7 +95,7 @@ jar包下载地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
 </configuration>
 ```
 
-###### 创建映射配置文件
+## 创建映射配置文件
 - 基于xml的配置文件[IUserDao.xml]
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -201,7 +202,7 @@ jar包下载地址二：[https://mvnrepository.com/](https://mvnrepository.com/)
 </mapper>
 ```
 
-###### 测试Mybatis
+## 测试Mybatis
 1. 读取配置文件
 2. 创建SqlSessionFactory工厂：
 3. 使用工厂生产SqlSession对象：
@@ -239,7 +240,7 @@ public class TestMybatis {
 
 ```
 
-###### 完成
+## 参考文档
 
 - 参考官网：[https://mybatis.org/mybatis-3/zh/index.html](https://mybatis.org/mybatis-3/zh/index.html)
 

@@ -1,9 +1,8 @@
-## SSM整合
- **整合的思想** <br />
-使用Spring框架整合SpringMVC框架
-使用Spring框架整合Mybatis框架 <br />
- **依赖包** <br />
-
+SSM整合<br />
+- 整合的思想
+1. 使用Spring框架整合SpringMVC框架 <br />
+2. 使用Spring框架整合Mybatis框架 <br />
+## **Jar依赖包** <br />
 ```
 <!--【数据相关】-->
 <!--【MySql连接】-->
@@ -37,7 +36,7 @@
 2. 搭建Spring配置环境
 3. 使用Spring整合SpringMVC框架
 4. 使用Spring整合Mybatis框架
-#### Spring整合SpringMVC
+## Spring整合SpringMVC
 **整合流程**<br />
 - 搭建SpringMVC环境(前面已介绍，此处忽略)
 - 编写Spring业务类
@@ -147,7 +146,7 @@ public class IndexController {
     }
 }
 ```
-#### Spring整合Mybatis
+## Spring整合Mybatis
 - 创建数据表
 ```
 CREATE TABLE `users` (
@@ -160,7 +159,6 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 ```
 - 创建Dao数据接口
-
 ```
 package com.dao;
 
@@ -218,7 +216,6 @@ public class UserService {
 - `applicationContext.xml`中配置数据驱动
 1. 配置数据源
 2. 配置事物管理
-
 ```
 <!----------------【数据源配置】---------------------------------------------->
 <!--配置数据库-->
@@ -241,7 +238,6 @@ public class UserService {
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="typeAliasesPackage" value="com.bean" />
     <property name="dataSource" ref="dataSource"/>
-
     <!-- 使用XML方式配置：CRUD，需要与下面的【属性1 或者 属性2】配和使用-->
     <!--<property name="mapperLocations" value="classpath:com/config/*.xml" />-->
 </bean>
