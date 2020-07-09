@@ -1,9 +1,9 @@
-## 索引类型
-### B-Tree索引
+# 索引类型
+## B-Tree索引
 + BTree索引，大方面，都用的是平衡树，具体的实现，各引擎稍有不同;
 + Myisam，innodb中，默认都是用B-tree索引;
 + BTree，可以理解为"**排好序的快速查找结构**",即**利于范围**快速查找。
-#### Hash索引
+## Hash索引
 <p>在memory表里，默认是Hash索引，hash的理论查询时间复杂度为O（I）</p>
 <p>hash的查找如此高效，为什么不都用hash索引？</p>
 
@@ -13,7 +13,7 @@
    但hash('helloword'),hash('hello'),两者的关系分为随机，即无法查找
 4. 排序无法优化；
 5. 必须回行，即：通过索引拿到数据位置，必须回到表中去数据；
-### 索引常见误区
+## 索引常见误区
 - 在where条件常用的列上都加上**独立索引**
 <p style="text-indent:20px;">如：where uid = 1 and capital > 10;</p>
 <p style="text-indent:20px;">误：uid,capital都加上索引</p>
@@ -49,11 +49,11 @@
 
 
 
-## Explain参数[常用的]
+# Explain参数[常用的]
 ### type
 - system 系统级别，表示已经优化至系统级别了;
 - range 使用索引的方式，表范围；
-#### key_len
+### key_len
 <p>所使用索引的长度</p>
 
 ### Extra
