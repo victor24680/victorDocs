@@ -1,5 +1,5 @@
 ## 索引类型
-#### B-Tree索引
+### B-Tree索引
 + BTree索引，大方面，都用的是平衡树，具体的实现，各引擎稍有不同;
 + Myisam，innodb中，默认都是用B-tree索引;
 + BTree，可以理解为"**排好序的快速查找结构**",即**利于范围**快速查找。
@@ -13,7 +13,7 @@
    但hash('helloword'),hash('hello'),两者的关系分为随机，即无法查找
 4. 排序无法优化；
 5. 必须回行，即：通过索引拿到数据位置，必须回到表中去数据；
-#### 索引常见误区
+### 索引常见误区
 - 在where条件常用的列上都加上**独立索引**
 <p style="text-indent:20px;">如：where uid = 1 and capital > 10;</p>
 <p style="text-indent:20px;">误：uid,capital都加上索引</p>
@@ -22,6 +22,10 @@
 - 在多列上建立索引后，查询哪个列，索引都将发挥作用
 <p style="text-indent:20px;">多列索引上，索引发挥作用，需要满足前缀要求。</p>
 <p style="text-indent:20px;">index(a,b,c)</p>
+<p style="text-indent:20px;">以下查询的测试都是查询全部
+    <code class="sql">select * from table1</code>，不是单个或多个<strong>含索引列的字段</strong>
+（因为此种情况，会自动优化，自动使用索引）
+</p>
 
 |where条件|索引是否发挥作用|原因|
 |---|---|---|
@@ -46,13 +50,13 @@
 
 
 ## Explain参数[常用的]
-#### type
+### type
 - system 系统级别，表示已经优化至系统级别了;
 - range 使用索引的方式，表范围；
 #### key_len
 <p>所使用索引的长度</p>
 
-#### Extra
+### Extra
 1. Using where：表示优化器需要通过索引回表查询数据;
 2. Using index: 表示直接访问索引就足够获取到所需要的数据，不需要通过索引回表
 3. Using index condition：V5.6之后的特性，会先过滤索引，过滤完索引之后找到符合索引条件的数据行，随后用where子句中的其他条件取过滤这些数据行;
