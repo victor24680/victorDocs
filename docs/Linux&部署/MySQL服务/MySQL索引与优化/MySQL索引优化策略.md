@@ -24,7 +24,7 @@
 <p style="text-indent:20px;">index(a,b,c)</p>
 <p style="text-indent:20px;">以下查询的测试都是查询全部
     <code class="sql">select * from table1</code>，不是单个或多个<strong>含索引列的字段</strong>
-（因为此种情况，会自动优化，自动使用索引）
+（因为此种情况，会自动优化，自动使用索引,也叫索引覆盖）
 </p>
 
 |where条件|索引是否发挥作用|原因|
