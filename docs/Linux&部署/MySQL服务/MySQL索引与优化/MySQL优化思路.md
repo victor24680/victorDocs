@@ -62,3 +62,4 @@ show status like '%tmp%'
 - key_len表示索引所使用的字节数
 1. 一个字符占三个字节;
 2. 参考:[https://www.cnblogs.com/lukexwang/articles/7060950.html](https://www.cnblogs.com/lukexwang/articles/7060950.html);
+3. 参考:[http://huatu.98youxi.com/lct/#Rdd1d362ab13458cb7bb012ad53e95d13](http://huatu.98youxi.com/lct/#Rdd1d362ab13458cb7bb012ad53e95d13)
