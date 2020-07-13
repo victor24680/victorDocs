@@ -10,11 +10,24 @@
 ## 配置路径`application.properties`
 ```xml
 #thymeleaf 配置
+#严格使用HTML5标准
 spring.thymeleaf.mode=HTML5
+#非严格使用HTML标准【强烈建议使用此标准】
+#spring.thymeleaf.mode=LEGACYHTML5
 spring.thymeleaf.encoding=UTF-8
 spring.thymeleaf.content-type=text/html
 #缓存设置为false, 这样修改之后马上生效，便于调试
 spring.thymeleaf.cache=false
+```
+<p style="text-indent:20px;">【说明】如果使用非严格HTML5标准，需要加入如下jar包</p>
+
+```xml
+<!-- thymeleaf legacyhtml5 模式支持 -->
+<dependency>
+    <groupId>net.sourceforge.nekohtml</groupId>
+    <artifactId>nekohtml</artifactId>
+    <version>1.9.22</version>
+</dependency>
 ```
 ## 变量解析&字符串拼接
 - 变量解析
