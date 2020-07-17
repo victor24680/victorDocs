@@ -8,7 +8,7 @@
 </dependency>
 ```
 ## 配置路径`application.properties`
-```xml
+```properties
 #thymeleaf 配置
 #严格使用HTML5标准
 spring.thymeleaf.mode=HTML5
@@ -36,18 +36,28 @@ spring.thymeleaf.cache=false
 ```
 - 字符串拼接
 ```html
-<p th:text="|Hello! ${name}|">默认值</p>
+<p th:text="|Hello! ${name}|">拼接方式一</p>
+<p th:text="'Hello!'+${name}+'!!'">拼接方式二</p>
 ```
-## 静态资源文件引入
+## 静态资源文件引入&url地址解析
 ```html
-<link rel="stylesheet" type="text/css" media="all" href="@{/static/css/style.css}" />
-<script type="text/javascript" src="@{/static/js/base.js}"></script> 
+<!--样式引入-->
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/style.css}" />
+<!--脚本引入-->
+<script type="text/javascript" th:src="@{/static/js/base.js}"></script> 
+<!--URL连接【不带参数】-->
+<a th:herf="@{/lists}">跳转</a>
+<!--URL连接【带参数解析（？号的形式）（/lists?param1=id1&param2=id2）】-->
+<a th:herf="@{/lists(param1=${id1},param2=${id2)}">跳转</a>
+<!--URL连接【带参数解析（以路径参数的形式解析）(/lists/id1)】-->
+<a th:herf="@{/lists/{param1}(param1=${id1})}">跳转</a>
 ```
 ## 变量表达式
 - 普通变量表达式(参与运算)：`<p th:text="${price+99}">默认值</p>`
-- 类变量表达式
+- 类对象变量&普通变量表达式
 ```html
 <p>直接只用对象域访问</p>
+<!--user类对象-->
 <div th:object="${user}">
     <p th:text="*{name}">user对象的属性值</p>
 </div>
@@ -56,6 +66,14 @@ spring.thymeleaf.cache=false
 <p>直接使用对象名.成员方法访问</p>
 <p th:text="${user.getName()}"></p>
 ```
+- javascript脚本中引入变量【内联】
+```html
+<script th:inline="javascript">
+    var pid=[[$pid]];
+</script>
+```
+- style中内联解析变量（暂无）【官方推荐的不管用，不识别`th:inline="css"`】(坑)
+- 官方地址：[https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#inlining-vs-natural-templates](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#inlining-vs-natural-templates)
 ## 文件包含
 ```html
 #include.html
