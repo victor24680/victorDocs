@@ -1,11 +1,11 @@
-Ajax异步处理
+## Ajax异步处理
 - 下载Spring相关依赖包
 ```
 jackson-databind.jar
 jackson-core.jar
 jackson-annotations.jar
 ```
-1. 普通工程
+## 1. 普通工程
 链接：https://pan.baidu.com/s/1cX5rhtSzL6qy2LqUkBhCWA 
 提取码：o1z9
 2. maven工程地址
@@ -33,7 +33,7 @@ jackson-annotations.jar
     <version>1.2.68</version>
 </dependency>
 ```
-- jsp页面处理
+## jsp页面处理
 ```html
 <a href="javascript:void(0);" id="btn">发送Ajax请求</a><br><br>
 <script type="text/javascript">
@@ -46,17 +46,17 @@ jackson-annotations.jar
     		    dataType:"json",
     		    type:"post",
     		    success:function(msg){
-    		        alert(msg.username);
-    			alert(msg.birthday);
-    			alert(msg.sex);
-    			alert(msg.address)
+                        alert(msg.username);
+                        alert(msg.birthday);
+                        alert(msg.sex);
+                        alert(msg.address)
     		    }
     	        })
     	    })
     	})
 </script>
 ```
-- User对象
+## User对象
 ```
 package com.bean;
 
@@ -75,7 +75,7 @@ public class User implements Serializable {
     ...........
 }
 ```
-- 控制器响应处理
+## 控制器响应处理
 ```
 //@RequestBody 用于请求到的json数据转换成User对象
 //@ResponseBody 用于把返回的对象以json数据返回；
@@ -85,13 +85,11 @@ public @ResponseBody User testAjax(@RequestBody User user) throws Exception{
 }
 ```
 - 自定义快速转换JSON数据<br />
-依赖包：`com.alibaba.fastjson.jar`
-
+1. 依赖包：`com.alibaba.fastjson.jar`;
+2. 注意：请使用v1.2.7的版本（之前的版本有漏洞，官方已说明）
 ```
 package com.tool;
-
 import com.alibaba.fastjson.JSONObject;
-
 public class JsonDataTransfer {
   /**
    * JSon数据发送
@@ -134,8 +132,11 @@ public class JsonDataTransfer {
         return jsonString;
     }
 }
-
 ```
+## @RestController
+1. 方法的返回不会响应视图，直接以json字符串或者普通字符串返回；
+2. 相当于@Controller注解+@ResponseBody注解(以json数据形式返回)，常用于Ajax数据获取;
+
 
 **知识延伸**<br />
 在配置springmvc.xml时遇到一个问题，不配置`<mvc:annotation-driven />`注解驱动时，控制器中的方法也可以访问；
