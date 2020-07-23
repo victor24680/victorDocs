@@ -6,7 +6,7 @@
 - `application.properties`中的驱动配置
 ```mysql
 #spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_msg?characterEncoding=UTF-8 #【旧】
-spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_msg?rootcharacterEncoding=UTF-8&useSSL=false&serverTimezone=UTC #【新】
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_msg?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC #【新】
 
 #spring.datasource.driver-class-name=com.mysql.jdbc.Driver #【旧】
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver #【新】

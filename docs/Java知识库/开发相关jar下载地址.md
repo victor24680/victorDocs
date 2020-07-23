@@ -7,16 +7,24 @@
 [https://mvnrepository.com](https://mvnrepository.com)
 - maven中央社区
 [http://search.maven.org/#browse](http://search.maven.org/#browse)
-## 工具设置
-- IDEA设置自动更新pom.xml的坐标
-[blog.csdn.net/weixin_44532540/article/details/89672344](blog.csdn.net/weixin_44532540/article/details/89672344)
-- IDEA设置自定编译
-[blog.csdn.net/diaomeng11/article/details/73826564](blog.csdn.net/diaomeng11/article/details/73826564)
-- Eclipse 配置 Maven插件
-[https://blog.csdn.net/u013033112/article/details/80618961](https://blog.csdn.net/u013033112/article/details/80618961)
-- IDEA更换本地的Maven版本
-[https://blog.csdn.net/daotiao0199/article/details/84141414](https://blog.csdn.net/daotiao0199/article/details/84141414)
-- Maven更换镜像源[https://www.jianshu.com/p/dddc8b8c5c74](https://www.jianshu.com/p/dddc8b8c5c74)
+
+## 【IDEA】【Maven】工具设置
+- IDEA【手动】更新pom.xml中的jar依赖（项目右键->> Maven直接 Reimport（重新导入依赖）)<br />
+参考地址：[https://blog.csdn.net/yeqiuBOke/article/details/80922575](https://blog.csdn.net/yeqiuBOke/article/details/80922575)
+- IDEA【自动】设置更新pom.xml中的jar依赖，（有时候不管用，还是需要手动）<br />
+参考地址：[blog.csdn.net/weixin_44532540/article/details/89672344](blog.csdn.net/weixin_44532540/article/details/89672344)
+- IDEA更换本地的Maven版本仓库<br />
+参考地址：[https://blog.csdn.net/daotiao0199/article/details/84141414](https://blog.csdn.net/daotiao0199/article/details/84141414)
+
+- IDEA设置自定编译<br />
+参考地址：[blog.csdn.net/diaomeng11/article/details/73826564](blog.csdn.net/diaomeng11/article/details/73826564)
+- IDEA手动编译：`ctrl+F9`
+
+- Eclipse 配置 Maven插件<br />
+参考地址：[https://blog.csdn.net/u013033112/article/details/80618961](https://blog.csdn.net/u013033112/article/details/80618961)
+
+- Maven更换镜像源<br />
+参考地址：[https://www.jianshu.com/p/dddc8b8c5c74](https://www.jianshu.com/p/dddc8b8c5c74)
 
 
 ## 开发环境
