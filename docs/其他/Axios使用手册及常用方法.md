@@ -20,8 +20,7 @@ axios.put(url, bean).then(function (response) {
 })
 ```
 ## 问题解析
-问题：如何在ajax中使用普通参数请求？如：使用springMvc中的@RequestParam注解接收参数？
-
+问题：如何在ajax中使用普通参数请求？如：使用springMvc中的【@RequestParam】注解接收参数？<br />
 1. 场景应用：使用SpringMvc中的注解@RequestParam注解接收参数时，只能从:key1=value1&key2=value2，字符串中解析参数；
 2. axios中Ajax（post）请求数据时，会自动把json对象数据【`{user:'11',sex:'11''}`】转换成json字符串数据，如果会导致404；
 3. 解决方案如下；
