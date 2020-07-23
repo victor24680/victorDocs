@@ -19,6 +19,17 @@ spring.thymeleaf.content-type=text/html
 #缓存设置为false, 这样修改之后马上生效，便于调试
 spring.thymeleaf.cache=false
 ```
+
+## 文件头部引入
+```html
+<!DOCTYPE html>
+<!--必须必须引入-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body></body>
+</html>
+```
+
 <p style="text-indent:20px;">【说明】如果使用非严格HTML5标准，需要加入如下jar包</p>
 
 ```xml
