@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.mylw.ink/Linux%26%E9%83%A8%E7%BD%B2/MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/%E7%B4%A2%E5%BC%95%E7%AD%96%E7%95%A5%E5%92%8C%E9%AB%98%E6%80%A7%E8%83%BD%E7%B4%A2%E5%BC%95/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>索引策略和高性能索引 - Victor个人文档库</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Victor个人文档库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/JPA%20Data%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">JPA Data 常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Mybatis%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Mybatis使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SSM%E6%95%B4%E5%90%88/" class="dropdown-item">SSM整合</a>
+</li>
+                                    
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/maven%E5%B7%A5%E7%A8%8B%E5%9D%90%E6%A0%87%E4%BD%BF%E7%94%A8/" class="dropdown-item">Maven工程坐标使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3jar%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">开发相关jar下载地址</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Java语言库</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/IO%E6%96%87%E4%BB%B6%E6%B5%81/" class="dropdown-item">文件对象</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="dropdown-item">反射机制和注解</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E7%BB%84/" class="dropdown-item">字符串</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/" class="dropdown-item">常用类的应用</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%BC%82%E5%B8%B8/" class="dropdown-item">异常</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E7%BA%BF%E7%A8%8B/" class="dropdown-item">线程</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" class="dropdown-item">集合框架</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringBoot配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/MySQL5.6%E5%88%87%E6%8D%A2%E5%88%B0MySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%98%E6%9B%B4/" class="dropdown-item">MySQL5.6切换到MySQL8.0的配置变更</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/SpringBoot%E5%9F%BA%E4%BA%8EThymeleaf%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" class="dropdown-item">SpringBoot基于Thymeleaf模板引擎</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E5%85%A5%E9%97%A8%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/" class="dropdown-item">入门初步搭建方法</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90/" class="dropdown-item">注解解析</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC中文乱码处理和类型转换器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/" class="dropdown-item">中文乱码的处理方法</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/" class="dropdown-item">自定义类型转换器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC入门程序搭建</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="dropdown-item">SpringMvc基本概念</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E7%9A%84%E5%85%A5%E9%97%A8%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" class="dropdown-item">SpringMvc的入门及基本搭建流程</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC常用注解使用</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="dropdown-item">常用注解的分析与使用</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC异常处理和拦截器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="dropdown-item">异常处理</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E6%8B%A6%E6%88%AA%E5%99%A8%E5%A4%84%E7%90%86/" class="dropdown-item">拦截器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC请求参数及URL路径处理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%8E%B7%E5%8F%96%E5%8E%9F%E7%94%9F%E7%9A%84ServletAPI%E5%8F%8A%E9%A1%B9%E7%9B%AE%E7%9B%AE%E8%8E%B7%E5%8F%96/" class="dropdown-item">获取原生的ServletAPI及项目目获取</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%91%E5%AE%9A/" class="dropdown-item">请求参数的绑定</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC静态资源及Ajax异步请求</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/Ajax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE/" class="dropdown-item">Ajax异步请求数据</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%84%E7%90%86/" class="dropdown-item">文件上传</a>
+</li>
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%A4%84%E7%90%86/" class="dropdown-item">静态资源的处理</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC页面转发及视图响应</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E5%8F%8A%E8%A7%86%E5%9B%BE%E5%93%8D%E5%BA%94/%E3%80%90%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E4%B8%8E%E5%AE%9A%E5%90%91%E3%80%91%E5%93%8D%E5%BA%94%E4%B9%8B%E8%BF%94%E5%9B%9E%E5%80%BC%E7%B1%BB%E5%9E%8B/" class="dropdown-item">【页面转发与定向】响应之返回值类型</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&部署 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用命令</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/DHCH%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE/" class="dropdown-item">DHCH服务器设置</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Linux-ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="dropdown-item">Linux ab 压力测试工具</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="dropdown-item">Linux进程管理</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/SSH%E8%AF%B4%E6%98%8E/" class="dropdown-item">SSH说明</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Shell%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA/" class="dropdown-item">Shell 输入输出显示</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" class="dropdown-item">Ab 压力测试工具介绍</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/awk-grep%E7%AE%A1%E9%81%93%E5%91%BD%E4%BB%A4/" class="dropdown-item">Awk grep管道命令</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/find-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="dropdown-item">Find 命令详解</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88if%E7%AD%89%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%EF%BC%89/" class="dropdown-item">Shell脚本编程（if等判断语句）</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%EF%BC%89/" class="dropdown-item">Shell脚本编程（条件判断）</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/touch-%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="dropdown-item">Touch 命令及常用快捷键</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95%EF%BC%88%EF%BC%89/" class="dropdown-item">一些常用的命令用法（）</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%88%9B%E5%BB%BA%E4%BB%A5%E6%97%A5%E6%9C%9F%E5%91%BD%E5%90%8D%E7%9A%84%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6-%E8%BF%9B%E7%A8%8B-%E4%BF%A1%E5%8F%B7/" class="dropdown-item">创建以日期命名的临时文件 进程 信号</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%88%9B%E5%BB%BA%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BAtput/" class="dropdown-item">创建屏幕输出tput</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%90%88%E5%B9%B6%26%E9%93%BE%E6%8E%A5/" class="dropdown-item">合并&链接</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4crontab%E6%88%96at/" class="dropdown-item">后台执行命令crontab或at</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%91%BD%E4%BB%A4%E7%BB%93%E5%90%88%E6%89%A7%E8%A1%8C/" class="dropdown-item">命令结合执行</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="dropdown-item">用户权限管理</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%9B%AE%E5%BD%95%E5%8F%8A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%8F%8A%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" class="dropdown-item">目录及文件权限管理及磁盘管理</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E8%AE%B2%E8%A7%A3-%E7%99%BB%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%B2%E8%A7%A3/" class="dropdown-item">系统环境讲解 登录环境变量讲解</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%BD%91%E7%BB%9C%26IP%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">网络&IP相关使用命令</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E8%84%9A%E6%9C%AC%E4%BE%8B%E5%AD%90-rcN%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">脚本例子 rcN运行级别 常用命令</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-ElasticSearch%E6%9C%8D%E5%8A%A1/" class="dropdown-item">Linux ElasticSearch服务搭建 【基于Centos v7.0】</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux FTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-RabbitMQ%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux RabbitMQ服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Redis%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/" class="dropdown-item">Linux Redis服务部署</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Rsync%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/" class="dropdown-item">Linux Rsync实现主从文件同步</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-SFTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux SFTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Window-redis%E9%83%A8%E7%BD%B2/" class="dropdown-item">Window redis部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93-%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/" class="dropdown-item">MySQL数据库 主从同步配置</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" class="dropdown-item">MySQL面试汇总</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL索引与优化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../MySQL%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF/" class="dropdown-item">MySQL优化思路</a>
+</li>
+            
+<li>
+    <a href="../MySQL%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" class="dropdown-item">MySQL索引优化策略</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">索引策略和高性能索引</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Nginx服务与配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/NginxWeb%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E5%A4%87%E4%BB%BD/" class="dropdown-item">NginxWeb访问日志备份</a>
+</li>
+            
+<li>
+    <a href="../../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/Nginx%E5%9F%BA%E7%A1%80/" class="dropdown-item">Nginx基础</a>
+</li>
+            
+<li>
+    <a href="../../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/Nginx%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/" class="dropdown-item">Nginx源代码分析</a>
+</li>
+            
+<li>
+    <a href="../../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/%E4%BB%A3%E7%90%86%E6%A6%82%E5%BF%B5/" class="dropdown-item">代理概念</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Shell脚本备份</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC-MySql%E5%A4%87%E4%BB%BD/" class="dropdown-item">数据库备份脚本 MySql备份</a>
+</li>
+            
+<li>
+    <a href="../../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD/" class="dropdown-item">文件备份</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PHP知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/Linux-%E4%B8%8B%E7%9A%84RabbitMQ%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/" class="dropdown-item">Linux 下的RabbitMQ扩展安装</a>
+</li>
+                                    
+<li>
+    <a href="../../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">PHP开发相关 下载地址</a>
+</li>
+                                    
+<li>
+    <a href="../../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="dropdown-item">PHP知识总结</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">其他知识 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">Axios使用手册及常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Docker%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Docker使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Git%20%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/" class="dropdown-item">git初始化配置</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Markdown使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/MySQL-%E6%9D%83%E9%99%90%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">MySQL 权限使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/OAuth2.0%E6%8E%88%E6%9D%83/" class="dropdown-item">OAuth2.0授权</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/SMART%E7%BB%A9%E6%95%88%E5%8E%9F%E5%88%99/" class="dropdown-item">SMART绩效原则</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Vue.js%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/" class="dropdown-item">Vue.js知识点收集</a>
+</li>
+                                    
+<li>
+    <a href="../../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/uniApp%E7%BD%91%E5%9D%80%E6%94%B6%E9%9B%86/" class="dropdown-item">uniApp网址收集</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../MySQL%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/NginxWeb%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E5%A4%87%E4%BB%BD/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/victor24680/victorDocs/edit/master/docs/Linux&部署/MySQL服务/MySQL索引与优化/索引策略和高性能索引.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">聚族索引和非聚族索引</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">高性能索引策略</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">索引覆盖</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">理想索引</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">内容存储小技巧</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="_1">聚族索引和非聚族索引</h2>
+<ul>
+<li>innodb的索引文件上，直接存放该行数据，称为聚族索引，次索引指向对主键的引用。</li>
+<li>MyISAM中，主索引和次索引，都指向物理行，在磁盘上，每行都有自己的存储地址（磁盘位置）</li>
+<li>MyISAM引擎中，节点存储的对物理地址行，内容较小，又缓存在内存里，分裂速度很多，查询速度块，直接指向数据；</li>
+</ul>
+<p style="text-indent:20px;">注意：innodb的使用</p>
+
+<ol>
+<li>主键索引，即存储索引值，又在叶子中存储行的数据；</li>
+<li>如果没有主键，则会Unique Key做主键；</li>
+<li>如果没有unique,则系统生成一个内部rowid做主键；</li>
+<li>像innodb中，主键的索引结构中，既存储主键值，又存储了行数据，这种结构称为<strong>聚族索引</strong>；</li>
+<li>innodb是块状的。</li>
+</ol>
+<h4 id="_2">聚族索引</h4>
+<ol>
+<li>优势：根据主键查询条目比较少时，不用回行（数据就在主键节点下）</li>
+<li>劣势：如果碰到不规则数据插入时，造成频繁的页分裂，即尽量插入顺序递增的规则的数据。</li>
+<li>劣势：会造成大量的页分裂与页移动.</li>
+</ol>
+<pre><code class="mysql">#查看参数
+mysql&gt; show status; #显示所有状态参数
+Innodb_pages_read   334
+Innodb_pages_written    41412516 #页的写入
+mysql&gt; show processlist;#查看当前写入分裂的块
+</code></pre>
+
+<h2 id="_3">高性能索引策略</h2>
+<ol>
+<li>对于innodb而言，因为节点下有数据文件，因此节点的分裂将会比较慢；</li>
+<li>对于innodb的主键，尽量用整型，而且是递增的整型；</li>
+<li>无规律的数据，将会产生的页的分裂，影响速度。</li>
+</ol>
+<h2 id="_4">索引覆盖</h2>
+<p><p style="text-indent:20px;">
+    回行：由索引-&gt;磁盘取数据，叫做回行，(也有可能缓存在内存中)（查所以快，回行慢）
+</p>
+<p style="text-indent:20px;">
+    索引覆盖：是指如果查询的列恰好是索引的一部分，那么查询只需要在索引文件上进行，不需要回行到磁盘再查找数据，查询速度非常快;
+</p></p>
+<h2 id="_5">理想索引</h2>
+<ol>
+<li>查询频繁；</li>
+<li>区分度搞；</li>
+<li>长度小；</li>
+<li>尽量能覆盖常用查询字段。</li>
+</ol>
+<p style="text-indent:20px;font-weight:bold;">索引文件的影响</p>
+
+<p style="text-indent:20px;">索引长度直接影响索引长度的大小，影响增删改查的速度，并间接影响查询速度（占用内存多）</p>
+
+<ol>
+<li>截取的越短，重复度越高，区分度越小，索引效果越不好；</li>
+<li>截取的越长，重复度越低，区分度越高，索引效果越好，但带来的影响也越大-增删改慢，并间接影响查询速度。</li>
+<li>区分度 + 长度之间，取一个平衡点；</li>
+</ol>
+<p>常用手法：截取不同长度，并测试其区分度</p>
+
+<pre><code class="mysql">mysql&gt; select count(distinct left(word,6)) / count(*) from dict;
+</code></pre>
+
+<h2 id="_6">内容存储小技巧</h2>
+<ol>
+<li>比如网址：把内容倒着存放，建立索引（提高区分度）；</li>
+<li>构建一个伪哈希列，利于索引查询.
+<p style="text-indent:20px;">（1）用crc函数来构造伪哈希列；</p>
+<p style="text-indent:20px;">（2）把字符串的列转成整型，来降低索引长度。</p></li>
+</ol>
+<pre><code class="mysql">select * from ref_user where user_name=&quot;tom&quot;;
+#建立伪哈希索引
+alter table ref_user add crc1 int(11) default '0';
+alter table ref_user add index crc1(crc1);
+select * from ref_user where crc1=crc32('tom');
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Victor个人文档库</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

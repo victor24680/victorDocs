@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.mylw.ink/Linux%26%E9%83%A8%E7%BD%B2/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Linux-ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Linux ab 压力测试工具 - Victor个人文档库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Victor个人文档库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/JPA%20Data%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">JPA Data 常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Mybatis%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Mybatis使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SSM%E6%95%B4%E5%90%88/" class="dropdown-item">SSM整合</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/maven%E5%B7%A5%E7%A8%8B%E5%9D%90%E6%A0%87%E4%BD%BF%E7%94%A8/" class="dropdown-item">Maven工程坐标使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3jar%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">开发相关jar下载地址</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Java语言库</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/IO%E6%96%87%E4%BB%B6%E6%B5%81/" class="dropdown-item">文件对象</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="dropdown-item">反射机制和注解</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E7%BB%84/" class="dropdown-item">字符串</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/" class="dropdown-item">常用类的应用</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%BC%82%E5%B8%B8/" class="dropdown-item">异常</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E7%BA%BF%E7%A8%8B/" class="dropdown-item">线程</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" class="dropdown-item">集合框架</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringBoot配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/MySQL5.6%E5%88%87%E6%8D%A2%E5%88%B0MySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%98%E6%9B%B4/" class="dropdown-item">MySQL5.6切换到MySQL8.0的配置变更</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/SpringBoot%E5%9F%BA%E4%BA%8EThymeleaf%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" class="dropdown-item">SpringBoot基于Thymeleaf模板引擎</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E5%85%A5%E9%97%A8%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/" class="dropdown-item">入门初步搭建方法</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90/" class="dropdown-item">注解解析</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC中文乱码处理和类型转换器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/" class="dropdown-item">中文乱码的处理方法</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/" class="dropdown-item">自定义类型转换器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC入门程序搭建</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="dropdown-item">SpringMvc基本概念</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E7%9A%84%E5%85%A5%E9%97%A8%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" class="dropdown-item">SpringMvc的入门及基本搭建流程</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC常用注解使用</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="dropdown-item">常用注解的分析与使用</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC异常处理和拦截器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="dropdown-item">异常处理</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E6%8B%A6%E6%88%AA%E5%99%A8%E5%A4%84%E7%90%86/" class="dropdown-item">拦截器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC请求参数及URL路径处理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%8E%B7%E5%8F%96%E5%8E%9F%E7%94%9F%E7%9A%84ServletAPI%E5%8F%8A%E9%A1%B9%E7%9B%AE%E7%9B%AE%E8%8E%B7%E5%8F%96/" class="dropdown-item">获取原生的ServletAPI及项目目获取</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%91%E5%AE%9A/" class="dropdown-item">请求参数的绑定</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC静态资源及Ajax异步请求</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/Ajax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE/" class="dropdown-item">Ajax异步请求数据</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%84%E7%90%86/" class="dropdown-item">文件上传</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%A4%84%E7%90%86/" class="dropdown-item">静态资源的处理</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC页面转发及视图响应</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E5%8F%8A%E8%A7%86%E5%9B%BE%E5%93%8D%E5%BA%94/%E3%80%90%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E4%B8%8E%E5%AE%9A%E5%90%91%E3%80%91%E5%93%8D%E5%BA%94%E4%B9%8B%E8%BF%94%E5%9B%9E%E5%80%BC%E7%B1%BB%E5%9E%8B/" class="dropdown-item">【页面转发与定向】响应之返回值类型</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&部署 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用命令</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../DHCH%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE/" class="dropdown-item">DHCH服务器设置</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Linux ab 压力测试工具</a>
+</li>
+            
+<li>
+    <a href="../Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="dropdown-item">Linux进程管理</a>
+</li>
+            
+<li>
+    <a href="../SSH%E8%AF%B4%E6%98%8E/" class="dropdown-item">SSH说明</a>
+</li>
+            
+<li>
+    <a href="../Shell%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA/" class="dropdown-item">Shell 输入输出显示</a>
+</li>
+            
+<li>
+    <a href="../ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" class="dropdown-item">Ab 压力测试工具介绍</a>
+</li>
+            
+<li>
+    <a href="../awk-grep%E7%AE%A1%E9%81%93%E5%91%BD%E4%BB%A4/" class="dropdown-item">Awk grep管道命令</a>
+</li>
+            
+<li>
+    <a href="../find-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="dropdown-item">Find 命令详解</a>
+</li>
+            
+<li>
+    <a href="../shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88if%E7%AD%89%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%EF%BC%89/" class="dropdown-item">Shell脚本编程（if等判断语句）</a>
+</li>
+            
+<li>
+    <a href="../shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%EF%BC%89/" class="dropdown-item">Shell脚本编程（条件判断）</a>
+</li>
+            
+<li>
+    <a href="../touch-%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="dropdown-item">Touch 命令及常用快捷键</a>
+</li>
+            
+<li>
+    <a href="../%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95%EF%BC%88%EF%BC%89/" class="dropdown-item">一些常用的命令用法（）</a>
+</li>
+            
+<li>
+    <a href="../%E5%88%9B%E5%BB%BA%E4%BB%A5%E6%97%A5%E6%9C%9F%E5%91%BD%E5%90%8D%E7%9A%84%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6-%E8%BF%9B%E7%A8%8B-%E4%BF%A1%E5%8F%B7/" class="dropdown-item">创建以日期命名的临时文件 进程 信号</a>
+</li>
+            
+<li>
+    <a href="../%E5%88%9B%E5%BB%BA%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BAtput/" class="dropdown-item">创建屏幕输出tput</a>
+</li>
+            
+<li>
+    <a href="../%E5%90%88%E5%B9%B6%26%E9%93%BE%E6%8E%A5/" class="dropdown-item">合并&链接</a>
+</li>
+            
+<li>
+    <a href="../%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4crontab%E6%88%96at/" class="dropdown-item">后台执行命令crontab或at</a>
+</li>
+            
+<li>
+    <a href="../%E5%91%BD%E4%BB%A4%E7%BB%93%E5%90%88%E6%89%A7%E8%A1%8C/" class="dropdown-item">命令结合执行</a>
+</li>
+            
+<li>
+    <a href="../%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="dropdown-item">用户权限管理</a>
+</li>
+            
+<li>
+    <a href="../%E7%9B%AE%E5%BD%95%E5%8F%8A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%8F%8A%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" class="dropdown-item">目录及文件权限管理及磁盘管理</a>
+</li>
+            
+<li>
+    <a href="../%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E8%AE%B2%E8%A7%A3-%E7%99%BB%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%B2%E8%A7%A3/" class="dropdown-item">系统环境讲解 登录环境变量讲解</a>
+</li>
+            
+<li>
+    <a href="../%E7%BD%91%E7%BB%9C%26IP%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">网络&IP相关使用命令</a>
+</li>
+            
+<li>
+    <a href="../%E8%84%9A%E6%9C%AC%E4%BE%8B%E5%AD%90-rcN%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">脚本例子 rcN运行级别 常用命令</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-ElasticSearch%E6%9C%8D%E5%8A%A1/" class="dropdown-item">Linux ElasticSearch服务搭建 【基于Centos v7.0】</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux FTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-RabbitMQ%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux RabbitMQ服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Redis%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/" class="dropdown-item">Linux Redis服务部署</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Rsync%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/" class="dropdown-item">Linux Rsync实现主从文件同步</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-SFTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux SFTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Window-redis%E9%83%A8%E7%BD%B2/" class="dropdown-item">Window redis部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93-%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/" class="dropdown-item">MySQL数据库 主从同步配置</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" class="dropdown-item">MySQL面试汇总</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL索引与优化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/MySQL%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF/" class="dropdown-item">MySQL优化思路</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/MySQL%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" class="dropdown-item">MySQL索引优化策略</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/%E7%B4%A2%E5%BC%95%E7%AD%96%E7%95%A5%E5%92%8C%E9%AB%98%E6%80%A7%E8%83%BD%E7%B4%A2%E5%BC%95/" class="dropdown-item">索引策略和高性能索引</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Nginx服务与配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/NginxWeb%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E5%A4%87%E4%BB%BD/" class="dropdown-item">NginxWeb访问日志备份</a>
+</li>
+            
+<li>
+    <a href="../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/Nginx%E5%9F%BA%E7%A1%80/" class="dropdown-item">Nginx基础</a>
+</li>
+            
+<li>
+    <a href="../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/Nginx%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/" class="dropdown-item">Nginx源代码分析</a>
+</li>
+            
+<li>
+    <a href="../../Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/%E4%BB%A3%E7%90%86%E6%A6%82%E5%BF%B5/" class="dropdown-item">代理概念</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Shell脚本备份</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC-MySql%E5%A4%87%E4%BB%BD/" class="dropdown-item">数据库备份脚本 MySql备份</a>
+</li>
+            
+<li>
+    <a href="../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD/" class="dropdown-item">文件备份</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PHP知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/Linux-%E4%B8%8B%E7%9A%84RabbitMQ%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/" class="dropdown-item">Linux 下的RabbitMQ扩展安装</a>
+</li>
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">PHP开发相关 下载地址</a>
+</li>
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="dropdown-item">PHP知识总结</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">其他知识 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">Axios使用手册及常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Docker%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Docker使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Git%20%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/" class="dropdown-item">git初始化配置</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Markdown使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/MySQL-%E6%9D%83%E9%99%90%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">MySQL 权限使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/OAuth2.0%E6%8E%88%E6%9D%83/" class="dropdown-item">OAuth2.0授权</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/SMART%E7%BB%A9%E6%95%88%E5%8E%9F%E5%88%99/" class="dropdown-item">SMART绩效原则</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Vue.js%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/" class="dropdown-item">Vue.js知识点收集</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/uniApp%E7%BD%91%E5%9D%80%E6%94%B6%E9%9B%86/" class="dropdown-item">uniApp网址收集</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../DHCH%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/victor24680/victorDocs/edit/master/docs/Linux&部署/Linux常用命令/Linux-ab-压力测试工具.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h4 id="linux-ab">Linux 下ab压力测试</h4>
+<h6 id="1ab">1.ab的简介</h6>
+<p>ab是apachebench命令的缩写。</p>
+<p>ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等</p>
+<h6 id="2-ab">2. ab的原理</h6>
+<p>ab的原理：ab命令会创建多个并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此，它既可以用来测试apache的负载压力，也可以测试nginx、lighthttp、tomcat、IIS等其它Web服务器的压力。</p>
+<p>ab命令对发出负载的计算机要求很低，它既不会占用很高CPU，也不会占用很多内存。但却会给目标服务器造成巨大的负载，其原理类似CC攻击。自己测试使用也需要注意，否则一次上太多的负载。可能造成目标服务器资源耗完，严重时甚至导致死机。</p>
+<h6 id="3-ab">3. ab的安装</h6>
+<pre><code>`yum -y install httpd-tools`
+</code></pre>
+<pre><code>    测试安装是否成功：
+    [root@vic html]# ab -V
+    This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+</code></pre>
+
+<h6 id="4-ab">4. ab的参数说明</h6>
+<pre><code>[root@vic html]# ab --help
+ab: wrong number of arguments
+Usage: ab [options] [http[s]://]hostname[:port]/path
+Options are:
+    -n requests     Number of requests to perform
+    -c concurrency  Number of multiple requests to make
+    -t timelimit    Seconds to max. wait for responses
+    -b windowsize   Size of TCP send/receive buffer, in bytes
+    -p postfile     File containing data to POST. Remember also to set -T
+    -u putfile      File containing data to PUT. Remember also to set -T
+    -T content-type Content-type header for POSTing, eg.
+                    'application/x-www-form-urlencoded'
+                    Default is 'text/plain'
+    -v verbosity    How much troubleshooting info to print
+    -w              Print out results in HTML tables
+    -i              Use HEAD instead of GET
+    -x attributes   String to insert as table attributes
+    -y attributes   String to insert as tr attributes
+    -z attributes   String to insert as td or th attributes
+    -C attribute    Add cookie, eg. 'Apache=1234. (repeatable)
+    -H attribute    Add Arbitrary header line, eg. 'Accept-Encoding: gzip'
+                    Inserted after all normal header lines. (repeatable)
+    -A attribute    Add Basic WWW Authentication, the attributes
+                    are a colon separated username and password.
+    -P attribute    Add Basic Proxy Authentication, the attributes
+                    are a colon separated username and password.
+    -X proxy:port   Proxyserver and port number to use
+    -V              Print version number and exit
+    -k              Use HTTP KeepAlive feature
+    -d              Do not show percentiles served table.
+    -S              Do not show confidence estimators and warnings.
+    -g filename     Output collected data to gnuplot format file.
+    -e filename     Output CSV file with percentages served
+    -r              Don't exit on socket receive errors.
+    -h              Display usage information (this message)
+    -Z ciphersuite  Specify SSL/TLS cipher suite (See openssl ciphers)
+    -f protocol     Specify SSL/TLS protocol (SSL2, SSL3, TLS1, or ALL)
+</code></pre>
+
+<p>详情说明：</p>
+<pre><code>    -n 在测试会话中所执行的请求个数。默认时，仅执行一个请求。请求的总数量
+    -c 一次产生的请求个数。默认是一次一个。请求的用户量
+    -t 测试所进行的最大秒数。其内部隐含值是-n 50000，它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。
+    -V 显示版本号并退出。
+</code></pre>
+
+<h6 id="5">5. 性能指标</h6>
+<p>I. 吞吐量（Requests per second）</p>
+<pre><code>    服务器并发处理能力的量化描述，单位是reqs/s，指的是在某个并发用户数下单位时间内处理的请求数。某个并发用户数下单位时间内能处理的最大请求数，称之为最大吞吐率。
+    记住：吞吐率是基于并发用户数的。这句话代表了两个含义：
+    a、吞吐率和并发用户数相关
+    b、不同的并发用户数下，吞吐率一般是不同的
+    计算公式：总请求数/处理完成这些请求数所花费的时间，即
+    Request per second=Complete requests/Time taken for tests
+    必须要说明的是，这个数值表示当前机器的整体性能，值越大越好。
+</code></pre>
+
+<p>II. 并发连接数（The number of concurrent connections）</p>
+<pre><code>并发连接数指的是某个时刻服务器所接受的请求数目，简单的讲，就是一个会话。
+</code></pre>
+<p>III. 并发用户数（Concurrency Level）</p>
+<p>要注意区分这个概念和并发连接数之间的区别，一个用户可能同时会产生多个会话，也即连接数。在HTTP/1.1下，IE7支持两个并发连接，IE8支持6个并发连接，FireFox3支持4个并发连接，所以相应的，我们的并发用户数就得除以这个基数。</p>
+<p>IV. 用户平均请求等待时间（Time per request）</p>
+<pre><code>计算公式：处理完成所有请求数所花费的时间/（总请求数/并发用户数），即：
+Time per request=Time taken for tests/（Complete requests/Concurrency Level）
+</code></pre>
+
+<p>V. 服务器平均请求等待时间（Time per request:across all concurrent requests）</p>
+<pre><code>    计算公式：处理完成所有请求数所花费的时间/总请求数，即：
+    Time taken for/testsComplete requests
+    可以看到，它是吞吐率的倒数。
+    同时，它也等于用户平均请求等待时间/并发用户数，即
+    Time per request/Concurrency Level
+</code></pre>
+
+<h6 id="ab">ab的应用</h6>
+<pre><code>   ab的命令参数比较多，我们经常使用的是-c和-n参数。
+   ab -c 10 -n 100 http://www.jinxqc.com/Index/index　：同时处理100个请求并运行10次
+
+　　-c 10表示并发用户数为10
+
+　　-n 100表示请求总数为100
+</code></pre>
+
+<pre><code>    [root@vic html]# ab -c 10 -n 100 http://www.myvick.cn/index.php
+    This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking www.myvick.cn (be patient).....done
+
+
+    Server Software:        nginx/1.13.6   #测试服务器的名字
+    Server Hostname:        www.myvick.cn  #请求的URL主机名
+    Server Port:            80             #web服务器监听的端口
+
+    Document Path:          /index.php　　  #请求的URL中的根绝对路径，通过该文件的后缀名，我们一般可以了解该请求的类型
+    Document Length:        799 bytes       #HTTP响应数据的正文长度
+
+    Concurrency Level:      10　　　　　　　　# 并发用户数，这是我们设置的参数之一
+    Time taken for tests:   0.668 seconds   #所有这些请求被处理完成所花费的总时间 单位秒
+    Complete requests:      100 　　　　　　  # 总请求数量，这是我们设置的参数之一
+    Failed requests:        0　　　　　　　　  # 表示失败的请求数量，这里的失败是指请求在连接服务器、发送数据等环节发生异常，以及无响应后超时的情况
+    Write errors:           0
+    Total transferred:      96200 bytes　　　 #所有请求的响应数据长度总和。包括每个HTTP响应数据的头信息和正文数据的长度
+    HTML transferred:       79900 bytes　　　　# 所有请求的响应数据中正文数据的总和，也就是减去了Total transferred中HTTP响应数据中的头信息的长度
+    Requests per second:    149.71 [#/sec] (mean) #吞吐率，计算公式：Complete requests/Time taken for tests  总请求数/处理完成这些请求数所花费的时间
+    Time per request:       66.797 [ms] (mean)   # 用户平均请求等待时间，计算公式：Time token for tests/（Complete requests/Concurrency Level）。处理完成所有请求数所花费的时间/（总请求数/并发用户数）
+    Time per request:       6.680 [ms] (mean, across all concurrent requests) #服务器平均请求等待时间，计算公式：Time taken for tests/Complete requests，正好是吞吐率的倒数。也可以这么统计：Time per request/Concurrency Level
+    Transfer rate:          140.64 [Kbytes/sec] received  #表示这些请求在单位时间内从服务器获取的数据长度，计算公式：Total trnasferred/ Time taken for tests，这个统计很好的说明服务器的处理能力达到极限时，其出口宽带的需求量。
+
+    Connection Times (ms)
+                  min  mean[+/-sd] median   max
+    Connect:        1    2   0.7      2       5
+    Processing:     2   26  81.3      3     615
+    Waiting:        1   26  81.3      3     615
+    Total:          3   28  81.3      6     618
+
+    Percentage of the requests served within a certain time (ms)
+      50%      6
+      66%      6
+      75%      7
+      80%      7
+      90%     10
+      95%    209
+      98%    209
+      99%    618
+     100%    618 (longest request)
+
+    #Percentage of requests served within a certain time（ms）这部分数据用于描述每个请求处理时间的分布情况，比如以上测试，80%的请求处理时间都不超过7ms，这个处理时间是指前面的Time per request，即对于单个用户而言，平均每个请求的处理时间
+</code></pre>
+
+<h6 id="nginxapache">nginx和apache对比</h6>
+<p>nginx性能确实比apache性能高。nginx的吞吐量大于apache的，吞吐量越大越好
+   - 复 制 地 址：<a href="https://www.cnblogs.com/myvic/p/7703973.html">https://www.cnblogs.com/myvic/p/7703973.html</a>
+- 参考一地址：<a href="https://blog.csdn.net/a407670849/article/details/89319360">https://blog.csdn.net/a407670849/article/details/89319360</a>
+- 参考二地址：<a href="https://ipcmen.com/ab">https://ipcmen.com/ab</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Victor个人文档库</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

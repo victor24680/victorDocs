@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.mylw.ink/Linux%26%E9%83%A8%E7%BD%B2/Nginx%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%85%8D%E7%BD%AE/Nginx%E5%9F%BA%E7%A1%80/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Nginx基础 - Victor个人文档库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Victor个人文档库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/JPA%20Data%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">JPA Data 常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Mybatis%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Mybatis使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SSM%E6%95%B4%E5%90%88/" class="dropdown-item">SSM整合</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/maven%E5%B7%A5%E7%A8%8B%E5%9D%90%E6%A0%87%E4%BD%BF%E7%94%A8/" class="dropdown-item">Maven工程坐标使用</a>
+</li>
+                                    
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3jar%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">开发相关jar下载地址</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Java语言库</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/IO%E6%96%87%E4%BB%B6%E6%B5%81/" class="dropdown-item">文件对象</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="dropdown-item">反射机制和注解</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E7%BB%84/" class="dropdown-item">字符串</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%B8%B8%E7%94%A8%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/" class="dropdown-item">常用类的应用</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E5%BC%82%E5%B8%B8/" class="dropdown-item">异常</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E7%BA%BF%E7%A8%8B/" class="dropdown-item">线程</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/Java%E8%AF%AD%E8%A8%80%E5%BA%93/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" class="dropdown-item">集合框架</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringBoot配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/MySQL5.6%E5%88%87%E6%8D%A2%E5%88%B0MySQL8.0%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%98%E6%9B%B4/" class="dropdown-item">MySQL5.6切换到MySQL8.0的配置变更</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/SpringBoot%E5%9F%BA%E4%BA%8EThymeleaf%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" class="dropdown-item">SpringBoot基于Thymeleaf模板引擎</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E5%85%A5%E9%97%A8%E5%88%9D%E6%AD%A5%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/" class="dropdown-item">入门初步搭建方法</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringBoot%E9%85%8D%E7%BD%AE/%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90/" class="dropdown-item">注解解析</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC中文乱码处理和类型转换器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/" class="dropdown-item">中文乱码的处理方法</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%A4%84%E7%90%86%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8/" class="dropdown-item">自定义类型转换器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC入门程序搭建</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="dropdown-item">SpringMvc基本概念</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F%E6%90%AD%E5%BB%BA/SpringMvc%E7%9A%84%E5%85%A5%E9%97%A8%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/" class="dropdown-item">SpringMvc的入门及基本搭建流程</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC常用注解使用</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8/%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="dropdown-item">常用注解的分析与使用</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC异常处理和拦截器</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="dropdown-item">异常处理</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/%E6%8B%A6%E6%88%AA%E5%99%A8%E5%A4%84%E7%90%86/" class="dropdown-item">拦截器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC请求参数及URL路径处理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%8E%B7%E5%8F%96%E5%8E%9F%E7%94%9F%E7%9A%84ServletAPI%E5%8F%8A%E9%A1%B9%E7%9B%AE%E7%9B%AE%E8%8E%B7%E5%8F%96/" class="dropdown-item">获取原生的ServletAPI及项目目获取</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%8F%8AURL%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86/%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%91%E5%AE%9A/" class="dropdown-item">请求参数的绑定</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC静态资源及Ajax异步请求</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/Ajax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE/" class="dropdown-item">Ajax异步请求数据</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%84%E7%90%86/" class="dropdown-item">文件上传</a>
+</li>
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%8AAjax%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%A4%84%E7%90%86/" class="dropdown-item">静态资源的处理</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">SpringMVC页面转发及视图响应</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../Java%E7%9F%A5%E8%AF%86%E5%BA%93/SpringMVC%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E5%8F%8A%E8%A7%86%E5%9B%BE%E5%93%8D%E5%BA%94/%E3%80%90%E9%A1%B5%E9%9D%A2%E8%BD%AC%E5%8F%91%E4%B8%8E%E5%AE%9A%E5%90%91%E3%80%91%E5%93%8D%E5%BA%94%E4%B9%8B%E8%BF%94%E5%9B%9E%E5%80%BC%E7%B1%BB%E5%9E%8B/" class="dropdown-item">【页面转发与定向】响应之返回值类型</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Linux&部署 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用命令</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/DHCH%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE/" class="dropdown-item">DHCH服务器设置</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Linux-ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="dropdown-item">Linux ab 压力测试工具</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="dropdown-item">Linux进程管理</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/SSH%E8%AF%B4%E6%98%8E/" class="dropdown-item">SSH说明</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/Shell%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA/" class="dropdown-item">Shell 输入输出显示</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ab-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" class="dropdown-item">Ab 压力测试工具介绍</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/awk-grep%E7%AE%A1%E9%81%93%E5%91%BD%E4%BB%A4/" class="dropdown-item">Awk grep管道命令</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/find-%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="dropdown-item">Find 命令详解</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88if%E7%AD%89%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%EF%BC%89/" class="dropdown-item">Shell脚本编程（if等判断语句）</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%EF%BC%88%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%EF%BC%89/" class="dropdown-item">Shell脚本编程（条件判断）</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/touch-%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="dropdown-item">Touch 命令及常用快捷键</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95%EF%BC%88%EF%BC%89/" class="dropdown-item">一些常用的命令用法（）</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%88%9B%E5%BB%BA%E4%BB%A5%E6%97%A5%E6%9C%9F%E5%91%BD%E5%90%8D%E7%9A%84%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6-%E8%BF%9B%E7%A8%8B-%E4%BF%A1%E5%8F%B7/" class="dropdown-item">创建以日期命名的临时文件 进程 信号</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%88%9B%E5%BB%BA%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BAtput/" class="dropdown-item">创建屏幕输出tput</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%90%88%E5%B9%B6%26%E9%93%BE%E6%8E%A5/" class="dropdown-item">合并&链接</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4crontab%E6%88%96at/" class="dropdown-item">后台执行命令crontab或at</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E5%91%BD%E4%BB%A4%E7%BB%93%E5%90%88%E6%89%A7%E8%A1%8C/" class="dropdown-item">命令结合执行</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="dropdown-item">用户权限管理</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%9B%AE%E5%BD%95%E5%8F%8A%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E5%8F%8A%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" class="dropdown-item">目录及文件权限管理及磁盘管理</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E8%AE%B2%E8%A7%A3-%E7%99%BB%E5%BD%95%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%B2%E8%A7%A3/" class="dropdown-item">系统环境讲解 登录环境变量讲解</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E7%BD%91%E7%BB%9C%26IP%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">网络&IP相关使用命令</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/%E8%84%9A%E6%9C%AC%E4%BE%8B%E5%AD%90-rcN%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="dropdown-item">脚本例子 rcN运行级别 常用命令</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Linux常用服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-ElasticSearch%E6%9C%8D%E5%8A%A1/" class="dropdown-item">Linux ElasticSearch服务搭建 【基于Centos v7.0】</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux FTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-RabbitMQ%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux RabbitMQ服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Redis%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/" class="dropdown-item">Linux Redis服务部署</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-Rsync%E5%AE%9E%E7%8E%B0%E4%B8%BB%E4%BB%8E%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/" class="dropdown-item">Linux Rsync实现主从文件同步</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Linux-SFTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="dropdown-item">Linux SFTP服务搭建</a>
+</li>
+            
+<li>
+    <a href="../../Linux%E5%B8%B8%E7%94%A8%E6%9C%8D%E5%8A%A1/Window-redis%E9%83%A8%E7%BD%B2/" class="dropdown-item">Window redis部署</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL服务</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93-%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE/" class="dropdown-item">MySQL数据库 主从同步配置</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E9%9D%A2%E8%AF%95%E6%B1%87%E6%80%BB/" class="dropdown-item">MySQL面试汇总</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">MySQL索引与优化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/MySQL%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF/" class="dropdown-item">MySQL优化思路</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/MySQL%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" class="dropdown-item">MySQL索引优化策略</a>
+</li>
+            
+<li>
+    <a href="../../MySQL%E6%9C%8D%E5%8A%A1/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BC%98%E5%8C%96/%E7%B4%A2%E5%BC%95%E7%AD%96%E7%95%A5%E5%92%8C%E9%AB%98%E6%80%A7%E8%83%BD%E7%B4%A2%E5%BC%95/" class="dropdown-item">索引策略和高性能索引</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Nginx服务与配置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../NginxWeb%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E5%A4%87%E4%BB%BD/" class="dropdown-item">NginxWeb访问日志备份</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Nginx基础</a>
+</li>
+            
+<li>
+    <a href="../Nginx%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/" class="dropdown-item">Nginx源代码分析</a>
+</li>
+            
+<li>
+    <a href="../%E4%BB%A3%E7%90%86%E6%A6%82%E5%BF%B5/" class="dropdown-item">代理概念</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Shell脚本备份</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC-MySql%E5%A4%87%E4%BB%BD/" class="dropdown-item">数据库备份脚本 MySql备份</a>
+</li>
+            
+<li>
+    <a href="../../Shell%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD/" class="dropdown-item">文件备份</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PHP知识库 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/Linux-%E4%B8%8B%E7%9A%84RabbitMQ%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/" class="dropdown-item">Linux 下的RabbitMQ扩展安装</a>
+</li>
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="dropdown-item">PHP开发相关 下载地址</a>
+</li>
+                                    
+<li>
+    <a href="../../../PHP%E7%9F%A5%E8%AF%86%E5%BA%93/PHP%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="dropdown-item">PHP知识总结</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">其他知识 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="dropdown-item">Axios使用手册及常用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Docker%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Docker使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Git%20%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/" class="dropdown-item">git初始化配置</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">Markdown使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/MySQL-%E6%9D%83%E9%99%90%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="dropdown-item">MySQL 权限使用手册</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/OAuth2.0%E6%8E%88%E6%9D%83/" class="dropdown-item">OAuth2.0授权</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/SMART%E7%BB%A9%E6%95%88%E5%8E%9F%E5%88%99/" class="dropdown-item">SMART绩效原则</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/Vue.js%E7%9F%A5%E8%AF%86%E7%82%B9%E6%94%B6%E9%9B%86/" class="dropdown-item">Vue.js知识点收集</a>
+</li>
+                                    
+<li>
+    <a href="../../../%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86/uniApp%E7%BD%91%E5%9D%80%E6%94%B6%E9%9B%86/" class="dropdown-item">uniApp网址收集</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../NginxWeb%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97%E5%A4%87%E4%BB%BD/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Nginx%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/victor24680/victorDocs/edit/master/docs/Linux&部署/Nginx服务与配置/Nginx基础.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h4 id="_1">简介</h4>
+<ul>
+<li>Nginx-一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP代理服务器。</li>
+</ul>
+<h4 id="_2">功能</h4>
+<ul>
+<li>处理静态文件，索引文件以及自动索引；打开文件描述符缓冲</li>
+<li>无缓存的反向代理加速，简单的负载均衡和容器</li>
+<li>模块化结构，</li>
+<li>支持SSL和TLS SNI。</li>
+<li>Master-slave模型，能够充分利用SMP的优势，且能减少工作进程在磁盘I/O的阻塞延迟。当采用select()/poll()调用时，还可以限制每个进程的连接数。</li>
+<li>安装配置：<a href="https://www.runoob.com/linux/nginx-install-setup.html">https://www.runoob.com/linux/nginx-install-setup.html</a></li>
+<li>PHP安装配置：<a href="https://www.cnblogs.com/kccdzz/p/9106513.html">https://www.cnblogs.com/kccdzz/p/9106513.html</a></li>
+<li>一键安装：<a href="https://lnmp.org/">https://lnmp.org/</a></li>
+<li>upstream参数制定。</li>
+<li>Nginx Rewrite 重写:<a href="https://www.cnblogs.com/mikeluwen/p/7068279.html">https://www.cnblogs.com/mikeluwen/p/7068279.html</a></li>
+</ul>
+<pre><code class="angular2html">    last #本条规则匹配完成后继续向下匹配新的location URI规则
+    break #中止Rewirte,不在继续匹配
+    redirect #返回临时重定向的HTTP状态302
+    permanent #返回永久重定向的HTTP状态301 (会在浏览器中产生重定向缓存，-关闭服务器也可以访问（除非清除浏览器）)
+
+    #重写示例：rewrite ^/(.*) http://www.bxvtest.com permanent;#永久重定向到http://www.bxvtest.com
+
+    #正在匹配规则
+    =       #表示精准匹配
+    ^~      #表示uri 以某个字符串开头,理解为匹配url路径即可（以xx开头）。
+
+    ~       #区分大小写的正则匹配（可用正则表达式）（以xx结尾）
+    ~*      #不区分大小写的正则匹配（以xx结尾）
+
+    !~和!~* #和上面两个恰巧相反
+
+    / 通用匹配 任何请求都会
+
+    首先精确匹配 = -&gt;其次以xx开头匹配^~ -&gt; 然后是按文件中顺序的正则匹配 -&gt; 最后是交给 / 通用匹配。
+
+    #文件及目录匹配
+    *-f和!-f  #判断是否存在文件
+    *-d和!-d  #判断是否存在目录
+    *-e和!-e  #判断是否存在文件或目录
+    *-x和!-x  #判断文件是否可执行
+
+    #Nginx 的一些可用的全局变量，可用做条件判断
+    $args
+    $content_length
+    $content_type
+    $document_root
+    $document_uri
+    $host
+    $http_referer #用来记录从那个页面链接访问过来的
+    $http_user_agent  #用来记客户浏览器的相关信息
+    $http_cookie
+    $http_host #等于server_name
+    $limit_rate
+    $request_body_file
+    $request_method
+    $remote_addr  #用以记录客户端的IP地址
+    $remote_port
+    $remote_user #用来记录客户端用户名称
+    $request_filename
+
+    $request_uri
+    $query_string
+    $scheme
+    $server_protocol
+    $server_addr
+    $server_name
+    $server_port
+    $uri
+
+    #禁止访问某类型txt的文件,大括号前一定要有空格【仅指静态文件请求】
+    location ~*\.(txt)$ {
+        return 404;
+    }
+
+    #禁止某个目录访问【仅指静态文件请求】
+    location ~ /invest {
+           return 404;
+    }
+
+    #禁止某个目录下的文件访问：无法禁止php文件访问（原因未知）
+    location ~ /invest/.*\.(txt)$ {
+        deny all;
+    }
+
+     #禁止某个目录下的动态可执行文件（如PHP文件）访问时,匹配程度必须在【^~】以上
+     location ^~/invest/ {
+           return 404;
+     }
+
+     #通用规则可以用来转发后端服务请求[首页转发]
+     location = / {
+        proxy_pass http://www.baidu.com;
+     }
+
+     //如果Nginx日志太多，可以对一些文件进行过滤，然后临时关闭日志。
+     location ~ .*\.(js|jpg|JPG|jpeg|JPEG|css|bmp|gif|GIF)$
+     {
+        access_log off;
+     }
+</code></pre>
+
+<p>参考：<a href="https://blog.csdn.net/qq_33862644/article/details/79337348">https://blog.csdn.net/qq_33862644/article/details/79337348</a></p>
+<h6 id="nginx-cache">Nginx Cache 服务配置</h6>
+<pre><code class="angular2html">    #如果需要将文件缓存到本地，则需要增加如下几个子参数
+    proxy_store on;
+    proxy_store_access user:rw group:rw all:rw;
+    proxy_temp_path 缓存目录;其中，
+    proxy_store on 用来启用缓存到本地的功能，
+    proxy_temp_path 用来指定缓存在哪个目录下，如： proxy_temp_path html;
+
+    #虽然文件被缓存到了本地磁盘上，但每次请求仍会向远端拉取文件，为了避免去远
+     端拉取文件，必须修改 proxy_pass：代码:
+
+    if ( !-e $request_filename) {
+        proxy_pass http://freeke;
+    }
+
+</code></pre>
+
+<h6 id="nginx">Nginx 负载均衡</h6>
+<ul>
+<li>Nginx的upstrea目前支持4种方式的分配<ol>
+<li>轮询(默认)
+   ：每个请求按时间顺序逐一分配到不同的后端服务器器，如果后端服务器down掉，能自动剔除。</li>
+<li>weight
+   ：指定轮询几率，weight和访问比率程正比，用于后端服务器性能不均的情况</li>
+<li>ip_hash
+   ：每个请求按访问的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。可以针对同一个C类地址段中的客户端选择同一个后端服务器，除非那个后端服务器宕机了才会换一个。
+4.fair(第三方)
+   ：按后端服务器的响应时间来分配请求，响应时间短的优先分配。</li>
+<li>url_hash(第三方)
+   ：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</li>
+</ol>
+</li>
+</ul>
+<pre><code class="angular2html">    #每个设备的状态设置
+    1.down 表示单前的 server 暂时不参与负载
+    2.weight 默认为 1.weight 越大，负载的权重就越大。
+    3.max_fails ：允许请求失败的次数默认为 1.当超过最大次数时，返回 proxy_next_upstream 模块定义的错误
+    4.fail_timeout:max_fails 次失败后，暂停的时间。
+    5.backup： 其它所有的非 backup 机器 down 或者忙的时候，请求 backup 机器。所以这台机器压力会最轻。
+    Nginx 支持同时设置多组的负载均衡，用来给不用的 server 来使用。
+    client_body_in_file_only 设置为 On 可以讲 client post 过来的数据记录到文件中用来做 debug
+    client_body_temp_path 设置记录文件的目录 可以设置最多 3 层目录
+    location 对 URL 进行匹配.可以进行重定向或者进行新的代理 负载均衡
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Victor个人文档库</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
